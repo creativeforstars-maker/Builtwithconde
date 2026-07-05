@@ -1,0 +1,6 @@
+# Regeneratable build intermediates — not needed in version control.
+# Run `node scripts/build_all.mjs` to recreate them from reels-data.json.
+node_modules/
+assets/audio/
+assets/video/
+scenes/

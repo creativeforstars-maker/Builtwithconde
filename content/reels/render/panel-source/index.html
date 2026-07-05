@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>GrowthStack OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,440;0,9..144,500;0,9..144,600;0,9..144,680;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   GROWTHSTACK OS — Cream & Black Design System v2
+   Sidebar: #0A0A0A · Main: #F4F1EA · Cards: #FFFFFF
+   Accent: #00E0A0 · Display: Fraunces · Body: Manrope · Data: IBM Plex Mono
+   ============================================================ */
+:root{
+  --cream:#F4F1EA; --cream2:#ECE7DA; --cream3:#E1DACA;
+  --black:#0A0A0A; --black2:#171813; --black3:#26271F;
+  --white:#FFFFFF; --paper:#FFFEFB;
+  --t1:#15150F; --t2:#5C5A4C; --t3:#9A967F;
+  --green:#4E9B78; --green-deep:#1B5E43; --gdim:rgba(27,94,67,.07); --gline:rgba(27,94,67,.26);
+  --red:#A3432F; --amber:#96690D; --blue:#3D5788;
+  --b1:rgba(21,21,15,.08); --b2:rgba(21,21,15,.14);
+  --shadow:0 1px 2px rgba(21,21,15,.05),0 6px 16px rgba(21,21,15,.045);
+  --shadow2:0 4px 12px rgba(21,21,15,.07),0 20px 48px rgba(21,21,15,.09);
+  --shadow-glow:0 1px 2px rgba(21,21,15,.06),0 10px 30px rgba(27,94,67,.10);
+  --r:12px; --tr:.18s cubic-bezier(.16,1,.3,1);
+  --font-display:'Fraunces',Georgia,serif;
+  --font:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
+  --sb:224px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}}
+html{height:100%;height:100dvh;}
+body{background:var(--cream);color:var(--t1);font-family:var(--font);font-size:14px;-webkit-font-smoothing:antialiased;display:flex;height:100vh;height:100dvh;overflow:hidden;}
+::selection{background:var(--green-deep);color:var(--cream);}
+.mono,.tnum{font-family:var(--mono);font-feature-settings:'tnum' 1,'zero' 1;font-variant-numeric:tabular-nums;}
+
+/* ——— SIDEBAR ——— */
+.sb{width:var(--sb);min-width:var(--sb);background:radial-gradient(130% 85% at 12% 0%,#12201A 0%,var(--black) 50%),var(--black);display:flex;flex-direction:column;height:100%;overflow:hidden;flex-shrink:0;position:relative;}
+.sb-brand{display:flex;align-items:center;gap:11px;padding:22px 18px 18px;border-bottom:1px solid rgba(255,255,255,.07);}
+.gs-logo{width:33px;height:33px;border-radius:9px;background:var(--green-deep);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;font-family:var(--mono);color:var(--cream);flex-shrink:0;letter-spacing:-.5px;}
+.brand-t{color:var(--white);font-weight:600;font-size:16px;letter-spacing:-.2px;font-family:var(--font-display);}
+.brand-s{color:rgba(255,255,255,.38);font-size:10.5px;font-weight:500;letter-spacing:.2px;}
+.sb-client{padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.07);position:relative;z-index:1;}
+.cl-label{font-size:9.5px;letter-spacing:1.6px;color:rgba(255,255,255,.32);text-transform:uppercase;margin-bottom:6px;font-weight:700;}
+.cl-name{color:var(--white);font-weight:700;font-size:14.5px;letter-spacing:-.1px;}
+.cl-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(78,155,120,.12);border:1px solid var(--gline);color:var(--green);font-size:11px;font-weight:600;font-family:var(--mono);padding:3px 10px;border-radius:999px;margin-top:8px;}
+.sb-nav{flex:1;padding:8px;overflow-y:auto;}
+.nav-group{font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.25);text-transform:uppercase;padding:10px 8px 5px;}
+.nav-item{position:relative;display:flex;align-items:center;gap:10px;padding:8px 10px 8px 13px;border-radius:8px;cursor:pointer;color:rgba(255,255,255,.46);font-size:13px;font-weight:500;transition:all var(--tr);margin-bottom:1px;user-select:none;}
+.nav-item::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:2.5px;height:0;background:var(--green);border-radius:0 3px 3px 0;transition:height var(--tr);}
+.nav-item:hover{background:rgba(255,255,255,.055);color:rgba(255,255,255,.85);}
+.nav-item.active{background:rgba(255,255,255,.09);color:var(--white);}
+.nav-item.active::before{height:15px;}
+.nav-item.active .ni{color:var(--green);}
+.ni{width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;color:rgba(255,255,255,.42);transition:color var(--tr);}
+.ni svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.nav-item:hover .ni{color:rgba(255,255,255,.75);}
+.nb{margin-left:auto;font-size:10px;font-weight:600;font-family:var(--mono);padding:2px 7px;border-radius:999px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.4);}
+.nav-item.active .nb{background:var(--gdim);color:var(--green);}
+.sb-notion{margin:0 10px 10px;padding:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);border-radius:10px;}
+.notion-status{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.4);}
+.notion-dot{width:6px;height:6px;border-radius:50%;background:var(--t3);flex-shrink:0;}
+.notion-dot.connected{background:var(--green);animation:pulse 2.4s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+.notion-label{font-weight:600;font-family:var(--mono);font-size:10.5px;}
+.sb-foot{padding:13px 18px;border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;}
+.sb-pow{font-size:10px;color:rgba(255,255,255,.25);font-weight:500;}
+.sb-pow span{color:var(--green);}
+.sb-clock{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.2px;}
+
+/* ——— MAIN ——— */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;background:var(--cream);}
+.topbar{height:58px;flex-shrink:0;background:var(--paper);border-bottom:1px solid var(--b1);display:flex;align-items:center;padding:0 26px;gap:12px;box-shadow:0 1px 0 var(--b1);}
+.tb-title{font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.2px;}
+.tb-sub{font-size:12px;color:var(--t3);margin-top:1px;}
+.tb-sp{flex:1;}
+.tb-btn{display:inline-flex;align-items:center;gap:6px;background:var(--cream2);border:1px solid var(--b1);border-radius:7px;padding:6px 13px;color:var(--t2);font-size:12px;font-weight:600;cursor:pointer;transition:all var(--tr);font-family:var(--font);}
+.tb-btn:hover{border-color:var(--gline);color:var(--green-deep);background:var(--gdim);}
+.tb-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.tb-live{display:flex;align-items:center;gap:7px;font-size:11.5px;font-family:var(--mono);color:var(--t3);margin-left:6px;}
+
+/* ——— EDIT MODE ——— */
+#edit-btn.active{background:var(--black);color:var(--white);border-color:var(--black);}
+[contenteditable="true"]{outline:1.5px dashed transparent;outline-offset:2px;border-radius:4px;cursor:text;transition:outline-color .12s,background .12s;}
+.editing [contenteditable="true"]:hover{outline-color:rgba(27,94,67,.45);background:rgba(27,94,67,.05);}
+.editing [contenteditable="true"]:focus{outline:1.5px solid var(--green-deep);outline-offset:2px;background:var(--paper);}
+.edit-banner{display:none;align-items:center;gap:8px;background:var(--black);color:var(--white);font-size:11.5px;font-family:var(--mono);padding:8px 26px;}
+.edit-banner.on{display:flex;}
+.edit-banner .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+
+.cnt{flex:1;overflow-y:auto;overflow-x:hidden;padding:26px 28px;height:calc(100vh - 58px);}
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--cream3);border-radius:99px;}
+
+/* ——— VIEWS ——— */
+.view{display:none;}
+.view.on{display:block;}
+
+/* ——— KPI CARDS ——— */
+.kpi-g{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:22px;}
+.kpi{background:var(--paper);border:1px solid var(--b1);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);transition:all var(--tr);}
+.kpi:hover{box-shadow:var(--shadow2);transform:translateY(-1px);}
+.kpi.hi{border-color:var(--gline);background:linear-gradient(170deg,rgba(27,94,67,.055),var(--paper) 70%);box-shadow:var(--shadow-glow);}
+.kpi.hi:hover{box-shadow:var(--shadow-glow),var(--shadow2);}
+.kl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.1px;color:var(--t3);margin-bottom:11px;font-family:var(--font);}
+.kv{font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1,'zero' 1;font-size:32px;font-weight:600;letter-spacing:-.5px;line-height:1;color:var(--t1);}
+.kv.g{color:var(--green-deep);}
+.ks{font-size:11.5px;color:var(--t3);margin-top:8px;line-height:1.4;}
+.kt{font-size:10.5px;font-weight:600;font-family:var(--mono);padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:4px;margin-top:8px;}
+.kt.up{background:var(--gdim);color:var(--green-deep);border:1px solid rgba(27,94,67,.18);}
+.kt.neu{background:var(--cream2);color:var(--t2);}
+.kbar{height:3px;background:var(--cream3);border-radius:99px;margin-top:13px;overflow:hidden;}
+.kbar-f{height:100%;background:var(--green-deep);border-radius:99px;}
+
+/* ——— CARDS / SECTIONS ——— */
+.sc{background:var(--paper);border:1px solid var(--b1);border-radius:var(--r);overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow);}
+.sc-hd{padding:16px 20px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:10px;}
+.sc-ti{font-weight:700;font-size:13px;letter-spacing:-.15px;}
+.sc-su{font-size:11px;color:var(--t3);margin-left:auto;font-family:var(--mono);}
+.sc-lk{font-size:11px;color:var(--green-deep);cursor:pointer;margin-left:auto;font-weight:700;letter-spacing:-.1px;}
+.sc-lk:hover{opacity:.7;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+
+/* ——— PIPELINE MINI ——— */
+.pm-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);}
+.pm-c{background:var(--paper);padding:17px 19px;transition:background var(--tr);}
+.pm-c:hover{background:var(--cream2);}
+.pm-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t3);margin-bottom:5px;}
+.pm-v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:27px;font-weight:600;letter-spacing:-.4px;color:var(--t1);}
+.pm-v.g{color:var(--green-deep);}
+.pm-s{font-size:11px;color:var(--t3);margin-top:3px;}
+
+/* ——— ACTIVITY ——— */
+.act-i{display:flex;gap:12px;align-items:flex-start;padding:12px 20px;border-bottom:1px solid var(--b1);}
+.act-i:last-child{border-bottom:none;}
+.adot{width:7px;height:7px;border-radius:50%;margin-top:4px;flex-shrink:0;}
+.adot.g{background:var(--green);}
+.adot.a{background:var(--amber);}
+.adot.b{background:var(--blue);}
+.adot.x{background:var(--t3);}
+.at{font-size:12px;color:var(--t2);line-height:1.55;}
+.at strong{color:var(--t1);font-weight:600;}
+.atm{font-size:10.5px;color:var(--t3);margin-top:3px;font-family:var(--mono);}
+
+/* ——— MODULE PROGRESS BAR ——— */
+.mod-bar{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--b1);}
+.mod-c{background:var(--paper);padding:14px 15px;transition:background var(--tr);cursor:pointer;}
+.mod-c:active{background:var(--cream3);}
+.mod-c:hover{background:var(--cream2);}
+.mod-n{font-size:10px;color:var(--t3);margin-bottom:5px;font-family:var(--mono);}
+.mod-ti{font-size:11px;font-weight:700;color:var(--t1);}
+.mod-st{font-size:10px;font-weight:700;margin-top:7px;font-family:var(--mono);}
+.mod-st.g{color:var(--green-deep);}
+.mod-st.a{color:var(--amber);}
+.mod-st.x{color:var(--t3);}
+
+/* ——— KANBAN ——— */
+.kanban{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(216px,1fr);gap:12px;align-items:start;overflow-x:auto;padding-bottom:6px;}
+.kb-col{background:var(--cream2);border:1px solid var(--b1);border-radius:var(--r);}
+.kb-hd{padding:12px 14px;background:var(--paper);border-bottom:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between;border-radius:var(--r) var(--r) 0 0;}
+.kb-ti{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--t2);}
+.kb-cnt{width:21px;height:21px;border-radius:50%;background:var(--cream3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:var(--mono);color:var(--t2);}
+.kb-cnt.g{background:var(--gdim);color:var(--green-deep);}
+.kb-body{padding:8px;display:flex;flex-direction:column;gap:7px;min-height:90px;}
+.pc{background:var(--paper);border:1px solid var(--b1);border-radius:9px;padding:12px 13px;cursor:grab;transition:all var(--tr);box-shadow:var(--shadow);}
+.pc:hover{box-shadow:var(--shadow2);transform:translateY(-1px);border-color:var(--b2);}
+.pc.dragging{opacity:.45;cursor:grabbing;}
+.pc.won{border-color:var(--gline);background:var(--gdim);}
+.pc.lost{border-color:rgba(194,59,52,.22);background:rgba(194,59,52,.035);}
+.pc.lost .pn{color:var(--t2);}
+.pn{font-weight:700;font-size:12px;margin-bottom:3px;color:var(--t1);}
+.pm{font-size:10px;color:var(--t3);margin-bottom:6px;}
+.ptags{display:flex;gap:4px;flex-wrap:wrap;}
+.ptag{font-size:10px;padding:2px 7px;border-radius:999px;font-weight:600;}
+.ptag.ig{background:rgba(61,87,136,.09);color:var(--blue);}
+.ptag.st{background:var(--gdim);color:var(--green-deep);}
+.ptag.hot{background:rgba(163,67,47,.08);color:var(--red);}
+.ptag.warm{background:rgba(150,105,13,.1);color:var(--amber);}
+.ptag.ref{background:var(--cream2);color:var(--t2);border:1px solid var(--b1);}
+.pval{font-size:10px;color:var(--t3);margin-top:7px;font-family:var(--mono);}
+.pval.g{color:var(--green-deep);font-weight:700;}
+.pval.lost{color:var(--red);}
+.kb-empty{text-align:center;padding:18px;color:var(--t3);font-size:11px;font-style:italic;font-family:var(--font-display);}
+
+/* ——— TABLE ——— */
+.tbl{width:100%;border-collapse:collapse;}
+.tbl th{text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t3);padding:11px 16px;border-bottom:1px solid var(--b1);background:var(--cream2);}
+.tbl td{padding:11px 16px;border-bottom:1px solid var(--b1);font-size:13px;vertical-align:middle;color:var(--t1);}
+.tbl tr:hover td{background:var(--cream2);}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl input{background:transparent;border:1px solid transparent;border-radius:5px;padding:4px 8px;color:var(--t1);font-family:var(--mono);font-size:12px;width:100%;outline:none;transition:all var(--tr);}
+.tbl input:focus{background:var(--paper);border-color:var(--gline);box-shadow:0 0 0 3px var(--gdim);}
+.sb2{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:600;font-family:var(--mono);padding:3px 9px;border-radius:999px;}
+.sb2-g{background:var(--gdim);color:var(--green-deep);}
+.sb2-b{background:rgba(61,87,136,.09);color:var(--blue);}
+.sb2-x{background:var(--cream2);color:var(--t2);border:1px solid var(--b1);}
+.sb2-a{background:rgba(150,105,13,.1);color:var(--amber);}
+
+/* ——— DM MESSAGES ——— */
+.dm-tabs,.ct-tabs{display:flex;gap:6px;padding:14px 18px;border-bottom:1px solid var(--b1);background:var(--cream2);}
+.dm-tab,.ct-tab{font-size:12px;font-weight:600;padding:6px 14px;border-radius:7px;cursor:pointer;color:var(--t2);transition:all var(--tr);border:1px solid transparent;}
+.dm-tab.active,.ct-tab.active{background:var(--paper);color:var(--t1);border-color:var(--b1);box-shadow:var(--shadow);}
+.dm-tab:hover:not(.active),.ct-tab:hover:not(.active){background:rgba(21,21,15,.04);}
+.dm-panel,.ct-panel{display:none;padding:18px;}
+.dm-panel.on,.ct-panel.on{display:block;}
+
+/* ——— CONTENT CALENDAR ——— */
+.cal-wk{padding:14px 18px 6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.1px;color:var(--green-deep);border-top:1px solid var(--b1);}
+.cal-wk:first-child{border-top:none;padding-top:0;}
+.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:8px;padding:10px 18px 8px;}
+.cal-c{background:var(--cream2);border:1px solid var(--b1);border-radius:9px;padding:11px 12px;transition:all var(--tr);}
+.cal-c:hover{background:var(--paper);box-shadow:var(--shadow);transform:translateY(-1px);}
+.cal-c.rest{opacity:.5;}
+.cal-d{font-size:9.5px;font-weight:700;font-family:var(--mono);color:var(--t3);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;}
+.cal-fmt{background:var(--black);color:var(--white);font-size:8px;font-weight:700;padding:2px 5px;border-radius:4px;letter-spacing:.3px;}
+.cal-pillar{font-size:10px;font-weight:700;color:var(--green-deep);margin-bottom:5px;}
+.cal-hook{font-size:10.5px;color:var(--t2);line-height:1.45;}
+
+/* ——— CAPTION TEMPLATES ——— */
+.cap-c{background:var(--cream2);border:1px solid var(--b1);border-radius:10px;padding:17px 19px;margin-bottom:12px;}
+.cap-c:last-child{margin-bottom:0;}
+.cap-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green-deep);margin-bottom:10px;}
+.cap-body{font-size:12.5px;color:var(--t1);line-height:1.7;white-space:pre-line;}
+.dm-msg{background:var(--cream2);border:1px solid var(--b1);border-radius:10px;padding:16px;margin-bottom:10px;}
+.dm-msg-hd{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.dm-msg-num{background:var(--black);color:var(--white);font-size:10.5px;font-weight:600;font-family:var(--mono);padding:3px 10px;border-radius:999px;}
+.dm-msg-day{font-size:11px;color:var(--t3);font-family:var(--mono);}
+.dm-msg-body{font-family:var(--font-display);font-size:15px;color:var(--t1);line-height:1.55;font-style:italic;margin-bottom:9px;background:var(--paper);padding:13px 16px;border-radius:8px;border:1px solid var(--b1);border-left:2.5px solid var(--gline);}
+.dm-msg-goal{font-size:11px;color:var(--t3);}
+.dm-msg-goal strong{color:var(--t2);font-family:var(--font);font-style:normal;}
+
+/* ——— CONTENT / PILLARS ——— */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:18px;}
+.pill-c{background:var(--cream2);border:1px solid var(--b1);border-radius:10px;padding:17px;transition:all var(--tr);}
+.pill-c:hover{background:var(--paper);box-shadow:var(--shadow);}
+.pill-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:9px;}
+.pill-lbl.a{color:var(--amber);}
+.pill-lbl.e{color:var(--blue);}
+.pill-lbl.p{color:var(--red);}
+.pill-lbl.o{color:var(--green-deep);}
+.pill-ti{font-family:var(--font-display);font-weight:500;font-style:italic;font-size:15px;margin-bottom:8px;color:var(--t1);line-height:1.3;}
+.pill-ex{font-size:11px;color:var(--t2);line-height:1.6;}
+.story-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;padding:18px;}
+.story-c{background:var(--cream2);border:1px solid var(--b1);border-radius:10px;padding:13px 12px;transition:all var(--tr);}
+.story-c:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+.story-num{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t3);margin-bottom:6px;font-family:var(--mono);}
+.story-title{font-size:12px;font-weight:800;margin-bottom:7px;color:var(--t1);letter-spacing:-.1px;}
+.story-goal{font-size:10px;color:var(--t2);line-height:1.5;}
+.story-c.cta{border-color:var(--gline);background:var(--gdim);}
+.story-c.soft{border-color:rgba(150,105,13,.28);background:rgba(150,105,13,.05);}
+
+/* ——— MODULES ——— */
+.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.mod-card{background:var(--paper);border:1px solid var(--b1);border-radius:var(--r);padding:21px;box-shadow:var(--shadow);transition:all var(--tr);}
+.mod-card:hover{box-shadow:var(--shadow2);}
+.mod-card.done{border-color:var(--gline);}
+.mod-card.locked{opacity:.45;}
+.mod-hd{display:flex;align-items:flex-start;gap:13px;margin-bottom:15px;}
+.mod-ico{width:38px;height:38px;border-radius:9px;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:var(--mono);color:var(--t2);flex-shrink:0;border:1px solid var(--b1);}
+.mod-card.done .mod-ico{background:var(--gdim);color:var(--green-deep);border-color:var(--gline);}
+.mod-info{flex:1;}
+.mod-ti{font-family:var(--font-display);font-weight:600;font-size:15.5px;letter-spacing:-.1px;}
+.mod-wk{font-size:11px;color:var(--t3);margin-top:3px;font-family:var(--mono);}
+.mod-badge{margin-left:auto;font-size:10.5px;font-weight:600;font-family:var(--mono);padding:3px 9px;border-radius:999px;white-space:nowrap;}
+.mb-done{background:var(--gdim);color:var(--green-deep);border:1px solid var(--gline);}
+.mb-prog{background:rgba(150,105,13,.09);color:var(--amber);border:1px solid rgba(150,105,13,.22);}
+.mb-lock{background:var(--cream2);color:var(--t3);border:1px solid var(--b1);}
+.mod-tasks{display:flex;flex-direction:column;gap:8px;margin-bottom:13px;}
+.mod-task{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--t2);line-height:1.4;}
+.tc{width:16px;height:16px;border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;}
+.tc.d{background:var(--green-deep);color:var(--cream);}
+.tc.p{border:1.5px solid var(--b2);}
+.mod-pg{height:3px;background:var(--cream3);border-radius:99px;overflow:hidden;}
+.mod-pg-f{height:100%;background:var(--green-deep);border-radius:99px;}
+
+/* ——— METRICS ——— */
+.wk-tabs{display:flex;gap:6px;padding:14px 18px;border-bottom:1px solid var(--b1);background:var(--cream2);}
+.wk-tab{font-size:12px;font-weight:600;padding:5px 14px;border-radius:7px;cursor:pointer;color:var(--t2);transition:all var(--tr);border:1px solid transparent;}
+.wk-tab.active{background:var(--black);color:var(--white);}
+.wk-panel{display:none;padding:18px;}
+.wk-panel.on{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.wm-blk{background:var(--cream2);border:1px solid var(--b1);border-radius:10px;padding:16px;}
+.wm-sec{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green-deep);margin-bottom:11px;}
+.wm-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--b1);}
+.wm-row:last-child{border-bottom:none;}
+.wm-k{font-size:12px;color:var(--t2);}
+.wm-v{font-size:12.5px;font-weight:600;color:var(--t1);font-family:var(--mono);}
+.wm-v.g{color:var(--green-deep);}
+.wm-note{font-family:var(--font-display);font-style:italic;font-size:13px;color:var(--t2);line-height:1.6;margin-top:11px;padding:11px 13px;background:var(--paper);border-radius:8px;border-left:2.5px solid var(--gline);}
+
+/* ——— SALES ——— */
+.call-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:18px;}
+.cs{background:var(--cream2);border:1px solid var(--b1);border-radius:10px;padding:15px;transition:all var(--tr);}
+.cs:hover{background:var(--paper);box-shadow:var(--shadow);}
+.cs-time{font-size:10px;font-weight:700;color:var(--green-deep);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;font-family:var(--mono);}
+.cs-title{font-family:var(--font-display);font-weight:600;font-size:15px;margin-bottom:10px;color:var(--t1);}
+.cs-q{font-size:11px;color:var(--t2);line-height:1.5;margin-bottom:4px;}
+.cs-q::before{content:'→ ';color:var(--t3);}
+.obj-g{padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.obj-c{background:var(--cream2);border:1px solid var(--b1);border-radius:10px;padding:15px;}
+.obj-q{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:9px;}
+.obj-q::before{content:'" ';color:var(--t3);}
+.obj-q::after{content:'"';color:var(--t3);}
+.obj-a{font-family:var(--font-display);font-size:13.5px;color:var(--t2);line-height:1.55;font-style:italic;}
+
+/* ——— SOPs ——— */
+.sop-list{padding:18px;display:flex;flex-direction:column;gap:10px;}
+.sop-c{background:var(--paper);border:1px solid var(--b1);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+.sop-hd{padding:16px 19px;cursor:pointer;display:flex;align-items:center;gap:13px;transition:background var(--tr);}
+.sop-hd:hover{background:var(--cream2);}
+.sop-num{background:var(--black);color:var(--white);font-size:10.5px;font-weight:600;font-family:var(--mono);padding:3px 10px;border-radius:999px;flex-shrink:0;}
+.sop-name{font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:-.1px;}
+.sop-meta{font-size:11px;color:var(--t3);margin-left:auto;font-family:var(--mono);}
+.sop-arrow{font-size:11px;color:var(--t3);transition:transform var(--tr);margin-left:10px;}
+.sop-body{display:none;padding:0 19px 19px;}
+.sop-body.on{display:block;}
+.sop-step{display:flex;gap:13px;margin-bottom:13px;}
+.ss-n{width:22px;height:22px;border-radius:50%;background:var(--cream3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:var(--mono);color:var(--t2);flex-shrink:0;margin-top:1px;}
+.ss-ti{font-size:12.5px;font-weight:700;margin-bottom:4px;color:var(--t1);}
+.ss-de{font-size:12px;color:var(--t2);line-height:1.58;}
+
+/* ——— NOTION SETUP MODAL ——— */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,8,.6);backdrop-filter:blur(3px);z-index:200;align-items:center;justify-content:center;}
+.modal-overlay.on{display:flex;animation:fadeIn .2s ease;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.modal{background:var(--paper);border-radius:16px;padding:34px;width:520px;max-width:95vw;box-shadow:0 30px 80px rgba(10,10,8,.25);border:1px solid rgba(21,21,15,.06);animation:modalIn .25s cubic-bezier(.16,1,.3,1);}
+@keyframes modalIn{from{opacity:0;transform:translateY(8px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+.modal-ti{font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.2px;margin-bottom:5px;}
+.modal-su{font-size:13px;color:var(--t2);margin-bottom:24px;}
+.modal-field{margin-bottom:16px;}
+.modal-field label{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t3);margin-bottom:6px;}
+.modal-field input{width:100%;background:var(--cream2);border:1px solid var(--b1);border-radius:8px;padding:10px 14px;color:var(--t1);font-family:var(--mono);font-size:13px;outline:none;transition:all var(--tr);}
+.modal-field input:focus{border-color:var(--gline);background:var(--paper);box-shadow:0 0 0 3px var(--gdim);}
+.modal-field input::placeholder{color:var(--t3);}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.modal-actions{display:flex;gap:10px;margin-top:24px;}
+.btn-primary{flex:1;background:var(--black);color:var(--white);border:none;border-radius:9px;padding:12px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all var(--tr);}
+.btn-primary:hover{background:var(--black3);transform:translateY(-1px);box-shadow:var(--shadow2);}
+.btn-secondary{background:var(--cream2);color:var(--t2);border:1px solid var(--b1);border-radius:9px;padding:12px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font);transition:all var(--tr);}
+.btn-secondary:hover{border-color:var(--b2);background:var(--cream3);}
+.notion-guide{background:var(--cream2);border-radius:10px;padding:13px 15px;margin-bottom:20px;font-size:12px;color:var(--t2);line-height:1.65;}
+.notion-guide strong{color:var(--t1);}
+.notion-guide a{color:var(--green-deep);text-decoration:none;font-weight:600;}
+.notion-guide code{font-family:var(--mono);background:var(--cream3);padding:1px 5px;border-radius:4px;font-size:11px;}
+
+/* ——— ENTRANCE / SIGNATURE MOTION ——— */
+@keyframes riseIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.kpi-g .kpi{animation:riseIn .45s cubic-bezier(.16,1,.3,1) backwards;}
+.kpi-g .kpi:nth-child(1){animation-delay:.02s;}
+.kpi-g .kpi:nth-child(2){animation-delay:.07s;}
+.kpi-g .kpi:nth-child(3){animation-delay:.12s;}
+.kpi-g .kpi:nth-child(4){animation-delay:.17s;}
+.sb-nav .nav-item{animation:riseIn .4s cubic-bezier(.16,1,.3,1) backwards;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     SIDEBAR
+═══════════════════════════════════ -->
+<nav class="sb">
+  <div class="sb-brand">
+    <div class="gs-logo">GS</div>
+    <div><div class="brand-t">GrowthStack</div><div class="brand-s">Acquisition OS</div></div>
+  </div>
+  <div class="sb-client">
+    <div class="cl-label">Active Client</div>
+    <div class="cl-name" id="sb-client-name">James Carter</div>
+    <div class="cl-pill" id="sb-client-pill">Month 1 · $35K</div>
+  </div>
+  <div class="sb-nav">
+    <div class="nav-group">Overview</div>
+    <div data-nav="dashboard" class="nav-item active" onclick="nav('dashboard',this)"><span class="ni"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg></span>Dashboard</div>
+    <div class="nav-group">Strategy</div>
+    <div data-nav="identity" class="nav-item" onclick="nav('identity',this)"><span class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></svg></span>Business Identity</div>
+    <div class="nav-group">Acquisition</div>
+    <div data-nav="pipeline" class="nav-item" onclick="nav('pipeline',this)"><span class="ni"><svg viewBox="0 0 24 24"><path d="M3 4h18l-6.5 7.5v6.5l-5 2.5v-9L3 4z"/></svg></span>Pipeline<span class="nb" id="nb-pipeline">20</span></div>
+    <div data-nav="outbound" class="nav-item" onclick="nav('outbound',this)"><span class="ni"><svg viewBox="0 0 24 24"><path d="M6 18L18 6M18 6H10M18 6v8"/></svg></span>Outbound<span class="nb">4,050</span></div>
+    <div class="nav-group">Sales</div>
+    <div data-nav="sales" class="nav-item" onclick="nav('sales',this)"><span class="ni"><svg viewBox="0 0 24 24"><path d="M6.6 3.5h2.9l1.3 4.4-2.3 2A12.7 12.7 0 0013.7 15l2-2.3 4.4 1.3v2.9c0 1.2-1 2.1-2.2 2C10.3 18.5 5.5 13.7 5 6.2c0-.1 0-.3 0-.5A2 2 0 016.6 3.5z"/></svg></span>Sales Framework<span class="nb">58%</span></div>
+    <div class="nav-group">Content</div>
+    <div data-nav="content" class="nav-item" onclick="nav('content',this)"><span class="ni"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M9 4.5v15M15 4.5v15"/></svg></span>Content System</div>
+    <div class="nav-group">System</div>
+    <div data-nav="modules" class="nav-item" onclick="nav('modules',this)"><span class="ni"><svg viewBox="0 0 24 24"><path d="M12 3.5l8.5 4.5-8.5 4.5-8.5-4.5L12 3.5z"/><path d="M3.5 13l8.5 4.5 8.5-4.5"/></svg></span>Blueprint Modules<span class="nb">7</span></div>
+    <div data-nav="metrics" class="nav-item" onclick="nav('metrics',this)"><span class="ni"><svg viewBox="0 0 24 24"><path d="M3.5 16.5L9.5 10.5 13.5 14.5 20.5 7.5"/><path d="M14.5 7.5h6v6"/></svg></span>Weekly Metrics</div>
+    <div data-nav="sops" class="nav-item" onclick="nav('sops',this)"><span class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.8 13.3a8.6 8.6 0 000-2.6l2-1.5-2-3.3-2.4.9a8 8 0 00-2.2-1.3L14.8 3H9.2l-.4 2.5a8 8 0 00-2.2 1.3l-2.4-.9-2 3.3 2 1.5a8.6 8.6 0 000 2.6l-2 1.5 2 3.3 2.4-.9c.7.5 1.4 1 2.2 1.3l.4 2.5h5.6l.4-2.5a8 8 0 002.2-1.3l2.4.9 2-3.3-2-1.5z"/></svg></span>SOPs<span class="nb">6</span></div>
+  </div>
+  <div class="sb-notion">
+    <div class="notion-status">
+      <div class="notion-dot" id="notion-dot"></div>
+      <div class="notion-label" id="notion-label">Notion not connected</div>
+    </div>
+    <button class="tb-btn" style="width:100%;margin-top:10px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.55);font-size:11px;justify-content:center;" onclick="openModal()"><svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="3"/><path d="M19.8 13.3a8.6 8.6 0 000-2.6l2-1.5-2-3.3-2.4.9a8 8 0 00-2.2-1.3L14.8 3H9.2l-.4 2.5a8 8 0 00-2.2 1.3l-2.4-.9-2 3.3 2 1.5a8.6 8.6 0 000 2.6l-2 1.5 2 3.3 2.4-.9c.7.5 1.4 1 2.2 1.3l.4 2.5h5.6l.4-2.5a8 8 0 002.2-1.3l2.4.9 2-3.3-2-1.5z"/></svg> Configure Notion</button>
+  </div>
+  <div class="sb-foot"><div class="sb-pow">Built by <span>@bygrowthstack</span></div><div class="sb-clock" id="sb-clock"></div></div>
+</nav>
+
+<!-- ═══════════════════════════════════
+     MAIN
+═══════════════════════════════════ -->
+<div class="main">
+  <div class="topbar">
+    <div>
+      <div class="tb-title" id="ttitle">Dashboard</div>
+      <div class="tb-sub" id="tsub">James Carter · Performance Coach · UK Market</div>
+    </div>
+    <div class="tb-sp"></div>
+    <button class="tb-btn" onclick="openModal()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.8 13.3a8.6 8.6 0 000-2.6l2-1.5-2-3.3-2.4.9a8 8 0 00-2.2-1.3L14.8 3H9.2l-.4 2.5a8 8 0 00-2.2 1.3l-2.4-.9-2 3.3 2 1.5a8.6 8.6 0 000 2.6l-2 1.5 2 3.3 2.4-.9c.7.5 1.4 1 2.2 1.3l.4 2.5h5.6l.4-2.5a8 8 0 002.2-1.3l2.4.9 2-3.3-2-1.5z"/></svg>Notion Setup</button>
+    <button class="tb-btn" id="edit-btn" onclick="toggleEditMode()"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span id="edit-btn-label">Edit Content</span></button>
+    <button class="tb-btn" id="reset-btn" onclick="resetCurrentView()" style="display:none;color:var(--red);"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset view</button>
+    <button class="tb-btn" onclick="toggleFS()"><svg viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg></button>
+    <div class="tb-live"><div class="notion-dot" id="notion-dot-top"></div><span id="notion-label-top">Not connected</span></div>
+  </div>
+  <div class="edit-banner" id="edit-banner"><div class="dot"></div>Edit mode — click any text to change it. Saves automatically on this device.</div>
+
+  <div class="cnt">
+
+    <!-- DASHBOARD -->
+    <div class="view on" id="v-dashboard">
+      <div class="kpi-g">
+        <div class="kpi hi"><div class="kl">Revenue — Month 1</div><div class="kv g" id="kv-revenue">$35,000</div><div class="kbar"><div class="kbar-f" style="width:100%"></div></div><div class="ks">Target achieved · Month 2: $45K</div></div>
+        <div class="kpi"><div class="kl">Calls Completed</div><div class="kv" id="kv-calls">28</div><div class="kt up">↑ 100% show rate</div><div class="ks">4 weeks · 7/week average</div></div>
+        <div class="kpi"><div class="kl">Clients Closed</div><div class="kv" id="kv-closed">7</div><div class="kt up">↑ 58% close rate</div><div class="ks">Avg ticket: $5,000</div></div>
+        <div class="kpi"><div class="kl">Outbound Sent</div><div class="kv" id="kv-outbound">4,050</div><div class="kt up">↑ 9.3% reply rate</div><div class="ks">376 replies · 28 calls booked</div></div>
+      </div>
+      <div class="two">
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-ti">Pipeline — Month 1</div><div class="sc-lk" onclick="nav('pipeline')">View full →</div></div>
+          <div class="pm-g">
+            <div class="pm-c"><div class="pm-l">Contacted</div><div class="pm-v" id="pm-contacted">4,050</div><div class="pm-s">Via outbound + stories</div></div>
+            <div class="pm-c"><div class="pm-l">Replied</div><div class="pm-v" id="pm-replied">376</div><div class="pm-s">9.3% reply rate</div></div>
+            <div class="pm-c"><div class="pm-l">Calls Booked</div><div class="pm-v" id="pm-calls">28</div><div class="pm-s">7.4% of replies</div></div>
+            <div class="pm-c"><div class="pm-l">Closed Won</div><div class="pm-v g" id="pm-closed">7</div><div class="pm-s">$35,000 revenue</div></div>
+          </div>
+        </div>
+        <div class="sc">
+          <div class="sc-hd"><div class="sc-ti">Activity Feed</div></div>
+          <div class="act-i"><div class="adot g"></div><div><div class="at"><strong>Month 1 complete</strong> — $35,000 revenue · 7 clients closed</div><div class="atm">Week 4</div></div></div>
+          <div class="act-i"><div class="adot a"></div><div><div class="at"><strong>Personal brand reel</strong> hit 18K views — 6 organic DMs</div><div class="atm">Week 3</div></div></div>
+          <div class="act-i"><div class="adot b"></div><div><div class="at"><strong>Reply rate</strong> reached 9.8% — all-time high</div><div class="atm">Week 4</div></div></div>
+          <div class="act-i"><div class="adot g"></div><div><div class="at"><strong>Price raised</strong> — $5,000 → $6,000 from Month 2</div><div class="atm">Week 4</div></div></div>
+          <div class="act-i"><div class="adot x"></div><div><div class="at"><strong>Month 2 target set</strong> — $45,000 · ICP: founders at £1M+ revenue</div><div class="atm">Planning</div></div></div>
+        </div>
+      </div>
+      <div class="sc">
+        <div class="sc-hd"><div class="sc-ti">Blueprint Progress</div><div class="sc-su">All 7 modules complete · Month 1</div></div>
+        <div class="mod-bar">
+          <div class="mod-c" onclick="nav('identity')"><div class="mod-n">01</div><div class="mod-ti">🎯 Business Identity</div><div class="mod-st g">✓ Complete</div></div>
+          <div class="mod-c" onclick="nav('content')"><div class="mod-n">02</div><div class="mod-ti">📣 Content System</div><div class="mod-st g">✓ Complete</div></div>
+          <div class="mod-c" onclick="nav('outbound')"><div class="mod-n">03</div><div class="mod-ti">📩 Outbound System</div><div class="mod-st g">✓ Complete</div></div>
+          <div class="mod-c" onclick="nav('sales')"><div class="mod-n">04</div><div class="mod-ti">💰 Sales System</div><div class="mod-st g">✓ Complete</div></div>
+          <div class="mod-c" onclick="nav('pipeline')"><div class="mod-n">05</div><div class="mod-ti">📊 Pipeline</div><div class="mod-st g">✓ Complete</div></div>
+          <div class="mod-c" onclick="nav('metrics')"><div class="mod-n">06</div><div class="mod-ti">📈 Weekly Metrics</div><div class="mod-st g">✓ Complete</div></div>
+          <div class="mod-c" onclick="nav('sops')"><div class="mod-n">07</div><div class="mod-ti">⚙️ SOPs</div><div class="mod-st g">✓ Complete</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PIPELINE -->
+    <!-- BUSINESS IDENTITY -->
+    <div class="view" id="v-identity">
+      <div class="sc" style="margin-bottom:14px;">
+        <div class="sc-hd"><div class="sc-ti">Brand Statement</div><div class="sc-su">James Carter · Performance Coach · London, UK</div></div>
+        <div class="two" style="padding:18px 18px 0;margin-bottom:0;">
+          <div class="wm-blk"><div class="wm-sec" style="color:var(--t3);">Before GrowthStack</div><div class="wm-row"><div class="wm-k">Revenue</div><div class="wm-v">$12,000/mo</div></div><div class="wm-row"><div class="wm-k">Clients</div><div class="wm-v">4 at $3,000</div></div><div class="wm-row"><div class="wm-k">Pipeline</div><div class="wm-v">100% referrals</div></div><div class="wm-row"><div class="wm-k">Consistency</div><div class="wm-v">None — no system</div></div></div>
+          <div class="wm-blk"><div class="wm-sec">After 5 Weeks</div><div class="wm-row"><div class="wm-k">Revenue</div><div class="wm-v g">$35,000/mo</div></div><div class="wm-row"><div class="wm-k">Clients</div><div class="wm-v g">7 at $5,000</div></div><div class="wm-row"><div class="wm-k">Pipeline</div><div class="wm-v g">Predictable</div></div><div class="wm-row"><div class="wm-k">Calls</div><div class="wm-v g">10 booked/mo</div></div></div>
+        </div>
+        <div style="padding:16px 18px 18px;">
+          <div class="dm-msg-body" style="margin-bottom:0;">I help founders and busy executives in the UK get lean, energised and sharp — without living in the gym or letting the business eat their health.</div>
+        </div>
+      </div>
+
+      <div class="sc" style="margin-bottom:14px;">
+        <div class="sc-hd"><div class="sc-ti">Ideal Client Profile</div><div class="sc-su">Founders &amp; executives in the UK · 35–50 · running £500K–£5M businesses</div></div>
+        <div class="obj-g" style="grid-template-columns:repeat(3,1fr);">
+          <div class="obj-c"><div class="obj-q" style="color:var(--red);">Current situation</div><div class="obj-a" style="font-style:normal;font-family:var(--font);font-size:12px;">Runs a successful business — the body got left behind. Low energy by 3pm, poor sleep, zero structure. Has tried apps, gyms and 75-day challenges. Nothing sticks.</div></div>
+          <div class="obj-c"><div class="obj-q" style="color:var(--green-deep);">Dream outcome</div><div class="obj-a" style="font-style:normal;font-family:var(--font);font-size:12px;">Lean, strong and sharp in under 4 hours/week. Energy that lasts the whole day. A system that holds even in the busiest quarter of the year.</div></div>
+          <div class="obj-c"><div class="obj-q" style="color:var(--amber);">Biggest fear</div><div class="obj-a">"I've bought programs before and never finished them. Why would this be any different?"</div></div>
+        </div>
+        <div style="padding:0 18px 18px;display:flex;gap:7px;flex-wrap:wrap;">
+          <span class="kt neu">Instagram</span><span class="kt neu">LinkedIn</span><span class="kt neu">Founder communities</span><span class="kt neu">Client referrals</span>
+        </div>
+      </div>
+
+      <div class="sc" style="margin-bottom:14px;">
+        <div class="sc-hd"><div class="sc-ti">Unique Positioning</div><div class="sc-su">How James stands out in a market where everyone sounds identical</div></div>
+        <div style="padding:16px 18px 4px;">
+          <div class="sop-step"><div class="ss-n">1</div><div><div class="ss-ti">Niched down hard</div><div class="ss-de">From "personal trainer" to "I help founders and executives in the UK get lean and energised — without living in the gym."</div></div></div>
+          <div class="sop-step"><div class="ss-n">2</div><div><div class="ss-ti">Repositioned the price</div><div class="ss-de">From $3,000 to $5,000 per client. Sessions became a 12-week outcome. Different packaging, different language, different client.</div></div></div>
+          <div class="sop-step"><div class="ss-n">3</div><div><div class="ss-ti">Built authority content</div><div class="ss-de">Content that speaks to boardrooms, not gym mirrors — energy, focus and performance, never six-pack clichés.</div></div></div>
+          <div class="sop-step"><div class="ss-n">4</div><div><div class="ss-ti">Created a waitlist mentality</div><div class="ss-de">"We only take 3 new clients per month." Real scarcity — 1:1 delivery means James physically can't take more.</div></div></div>
+        </div>
+        <div style="padding:0 18px 18px;">
+          <div class="dm-msg-body" style="margin-bottom:0;">James stopped competing with every personal trainer in London and became the only logical choice for his exact client.</div>
+        </div>
+      </div>
+
+      <div class="sc">
+        <div class="sc-hd"><div class="sc-ti">Competitor Analysis</div><div class="sc-su">Why James is the only logical choice for busy founders and executives in the UK</div></div>
+        <div class="pillars">
+          <div class="pill-c"><div class="pill-lbl p">Generic Personal Trainers</div><div class="pill-ti" style="font-size:13px;">$60–$100/session</div><div class="pill-ex">Sessions, not outcomes. No plan beyond the gym floor. Clients drift away after a month.</div></div>
+          <div class="pill-c"><div class="pill-lbl e">Fitness Apps &amp; Programs</div><div class="pill-ti" style="font-size:13px;">$20–$100/mo</div><div class="pill-ex">Zero accountability, generic plans, information overload. Motivation dies by week 3.</div></div>
+          <div class="pill-c"><div class="pill-lbl a">Big Group Programmes</div><div class="pill-ti" style="font-size:13px;">$2,000–$3,000</div><div class="pill-ex">Group calls, cookie-cutter macros, no 1:1 attention. Clients feel like a number.</div></div>
+          <div class="pill-c" style="border-color:var(--gline);background:var(--gdim);"><div class="pill-lbl o">James Carter</div><div class="pill-ti" style="font-size:13px;">$5,000–$6,000</div><div class="pill-ex">1:1, built around a founder's calendar, outcome-based, documented system. Clients finish — and refer.</div></div>
+        </div>
+        <div style="padding:0 18px 18px;">
+          <div class="dm-msg-body" style="margin-bottom:0;">I'm not for everyone. I work exclusively with founders and executives in the UK who are ready to treat their body like their business.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="v-pipeline">
+      <div class="kanban" id="kanban-board"></div>
+    </div>
+
+    <!-- OUTBOUND -->
+    <div class="view" id="v-outbound">
+      <div class="sc" style="margin-bottom:14px;">
+        <div class="sc-hd"><div class="sc-ti">5-Message DM Sequence</div><div class="sc-su">Generated 4,050 contacts · 376 replies · 28 calls booked</div></div>
+        <div class="dm-tabs">
+          <div class="dm-tab active" onclick="dmTab('msg',this)">Messages 1–5</div>
+          <div class="dm-tab" onclick="dmTab('obj',this)">Objection Scripts</div>
+          <div class="dm-tab" onclick="dmTab('target',this)">Target Profile</div>
+        </div>
+        <div class="dm-panel on" id="dm-msg">
+          <div class="dm-msg"><div class="dm-msg-hd"><span class="dm-msg-num">Message 1</span><span class="dm-msg-day">Day 1 — opener</span></div><div class="dm-msg-body">"Hey [Name], came across your profile — impressive what you're building with [company]. Quick question: are you still finding time to train, or has the business taken over completely?"</div><div class="dm-msg-goal"><strong>Goal:</strong> Start a conversation. No pitch. No link. Just a genuine question. · <strong>Benchmark:</strong> 8–12% reply rate. Below 7% after 200 sends → rewrite the question, keep the structure.</div></div>
+          <div class="dm-msg"><div class="dm-msg-hd"><span class="dm-msg-num">Message 2</span><span class="dm-msg-day">Day 1–2 (if they say YES)</span></div><div class="dm-msg-body">"Thought so. Most founders I speak to hit the same wall — the business grows and the body pays for it. I help founders in the UK get lean and energised in under 4 hours a week, built around their calendar. Worth a 20-min call to see if it makes sense for you?"</div><div class="dm-msg-goal"><strong>Goal:</strong> Qualify and invite to call. Simple. Direct. · <strong>Rule:</strong> send within 10 minutes of their reply — speed doubles booking rate.</div></div>
+          <div class="dm-msg"><div class="dm-msg-hd"><span class="dm-msg-num">Message 3</span><span class="dm-msg-day">Day 3 — no reply follow-up</span></div><div class="dm-msg-body">"Hey [Name] — didn't want to lose you in the DMs. Did you get a chance to see my last message? No worries if now's not a good time."</div><div class="dm-msg-goal"><strong>Goal:</strong> Re-engage without pressure. · <strong>Benchmark:</strong> recovers 15–20% of silent leads. Never send twice.</div></div>
+          <div class="dm-msg"><div class="dm-msg-hd"><span class="dm-msg-num">Message 4</span><span class="dm-msg-day">Day 5 — value drop</span></div><div class="dm-msg-body">"Last follow up from me — I know you're busy. I'm putting together a case study on how a London agency owner dropped 9kg and doubled his energy in 12 weeks — while raising a round. Happy to share it if you're curious. Just say the word."</div><div class="dm-msg-goal"><strong>Goal:</strong> Provide value. Create curiosity without pushing. · <strong>Rule:</strong> the case study must be real and current — update it every time a client wins (SOP 6).</div></div>
+          <div class="dm-msg"><div class="dm-msg-hd"><span class="dm-msg-num">Message 5</span><span class="dm-msg-day">Day 7 — close the loop</span></div><div class="dm-msg-body">"All good if it's not the right time. I'll leave you to it. I only take 3 new clients a month — if things change, you know where to find me. 👊"</div><div class="dm-msg-goal"><strong>Goal:</strong> Close the loop professionally. Leave the door open. · <strong>Rule:</strong> after Message 5, lead goes to Closed Lost with reason "No reply". 10–15% come back within 60 days — answer them like they never left.</div></div>
+        </div>
+        <div class="dm-panel" id="dm-obj">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div class="obj-c"><div class="obj-q">I don't have time right now</div><div class="obj-a">"Totally get it. That's actually exactly why this works — everything is built around your calendar, under 4 hours a week. When would be a better time to chat for 20 minutes?"</div></div>
+          <div class="obj-c"><div class="obj-q">How much does it cost?</div><div class="obj-a">"It depends on what we build — that's exactly what the 20-min call is for. If it's not a fit, I'll tell you straight and point you somewhere better. Fair?" <strong style="font-family:var(--font);font-style:normal;">Never give the price in DMs — price without context only creates objections.</strong></div></div>
+          <div class="obj-c"><div class="obj-q">Message me in a few months</div><div class="obj-a">"Will do. Quick one before I go — is it a money thing or a timing thing? Just so I know what to send you when I follow up." <strong style="font-family:var(--font);font-style:normal;">Log the answer + set the follow-up date in the tracker. A vague "later" without a reason is a Closed Lost.</strong></div></div>
+            <div class="obj-c"><div class="obj-q">How much does it cost?</div><div class="obj-a">"Depends on what you need. That's why I'd love to jump on a quick call first — I want to make sure it actually makes sense for your situation before talking numbers."</div></div>
+            <div class="obj-c"><div class="obj-q">Send me more information</div><div class="obj-a">"Sure — I'll send you the case study of a London agency owner I worked with recently. But honestly the best way is a quick 20-min call. Can we do [Day] at [Time]?"</div></div>
+            <div class="obj-c"><div class="obj-q">I'm already working with someone</div><div class="obj-a">"No problem at all. If things change or you want a second opinion on your system, feel free to reach out. Good luck with everything 👊"</div></div>
+          </div>
+        </div>
+        <div class="dm-panel" id="dm-target">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div><div style="font-size:11px;font-weight:700;color:var(--green-deep);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">✅ Contact if...</div>
+              <div class="wm-row"><div class="wm-k">Profile</div><div class="wm-v">Founders &amp; executives, UK</div></div>
+              <div class="wm-row"><div class="wm-k">Age</div><div class="wm-v">35–50</div></div>
+              <div class="wm-row"><div class="wm-k">Business</div><div class="wm-v">£500K–£5M revenue</div></div>
+              <div class="wm-row"><div class="wm-k">Signal</div><div class="wm-v">Talks about the grind, travel, low energy</div></div>
+            </div>
+            <div><div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">❌ Skip if...</div>
+              <div class="wm-row"><div class="wm-k">Type</div><div class="wm-v">Already an athlete / gym regular</div></div>
+              <div class="wm-row"><div class="wm-k">Business</div><div class="wm-v">No real company behind the profile</div></div>
+              <div class="wm-row"><div class="wm-k">Audience</div><div class="wm-v">Fake followers, zero engagement</div></div>
+              <div class="wm-row" style="border:none"><div class="wm-k" style="color:var(--t3)">Where to find</div><div class="wm-v" style="color:var(--t3);font-size:11px;">#founder #agencylife · LinkedIn + podcast guests</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sc">
+        <div class="sc-hd"><div class="sc-ti">Daily Outbound Tracker</div><div class="sc-su">Weekly target: 1,000 contacts · 80-120 replies · 8-12 calls</div></div>
+        <table class="tbl"><thead><tr><th>Day</th><th>Contacts Sent</th><th>Replies</th><th>Calls Booked</th><th>Best Message</th><th>Notes</th></tr></thead><tbody id="daily-tbody"></tbody></table>
+      </div>
+    </div>
+
+    <!-- SALES -->
+    <div class="view" id="v-sales">
+      <div class="kpi-g">
+        <div class="kpi hi"><div class="kl">Close rate</div><div class="kv g">58%</div><div class="ks">7 of 12 proposals closed</div></div>
+        <div class="kpi"><div class="kl">Calls completed</div><div class="kv">28</div><div class="kt up">100% show rate</div></div>
+        <div class="kpi"><div class="kl">Avg ticket</div><div class="kv">$5,000</div><div class="kt up">↑ $6,000 Month 2</div></div>
+        <div class="kpi"><div class="kl">Revenue closed</div><div class="kv">$35K</div><div class="ks">Month 2 target: $45K</div></div>
+      </div>
+      <div class="sc" style="margin-bottom:14px;">
+        <div class="sc-hd"><div class="sc-ti">Pre-Call Sequence</div><div class="sc-su">Sent before every booked call — this sequence is the 100% show rate. Skip it and sit at 60%.</div></div>
+        <div class="obj-g" style="grid-template-columns:repeat(3,1fr);">
+          <div class="obj-c"><div class="obj-q" style="color:var(--green-deep);">Immediately after booking</div><div class="obj-a">"Hey [Name], looking forward to our call on [Day] at [Time]. Before we chat — what does your training look like right now, and what's the biggest thing getting in the way?"</div></div>
+          <div class="obj-c"><div class="obj-q" style="color:var(--green-deep);">24 hours before</div><div class="obj-a">"Hey [Name], just a reminder we have our call tomorrow at [Time]. I've been thinking about what we discussed and I already have some ideas for your situation. See you tomorrow 👊"</div></div>
+          <div class="obj-c"><div class="obj-q" style="color:var(--green-deep);">1 hour before</div><div class="obj-a">"Hey [Name], see you in an hour. Here's the link: [LINK]"</div></div>
+        </div>
+      </div>
+      <div class="sc" style="margin-bottom:14px;">
+        <div class="sc-hd"><div class="sc-ti">45-Minute Call Framework</div><div class="sc-su">Every call James does follows this exact structure</div></div>
+        <div class="call-steps">
+          <div class="cs"><div class="cs-time">0–5 min</div><div class="cs-title">Connection</div><div class="cs-q">How did you find me?</div><div class="cs-q">What made you book today?</div><div style="font-size:11px;color:var(--t3);margin-top:8px;">Lower their guard. Do not pitch. <strong>You talk &lt;40% here.</strong></div></div>
+          <div class="cs"><div class="cs-time">5–20 min</div><div class="cs-title">Diagnosis</div><div class="cs-q">What does training look like right now, honestly?</div><div class="cs-q">What's your energy like at 3pm?</div><div class="cs-q">What have you tried in the last 2 years?</div><div class="cs-q">What would being in the best shape of your life change?</div><div style="font-size:11px;color:var(--amber);margin-top:8px;font-weight:600;">Never pitch during diagnosis. You talk &lt;30% here — their answers ARE the sale.</div></div>
+          <div class="cs"><div class="cs-time">20–35 min</div><div class="cs-title">Presentation</div><div class="cs-q">Walk through the Training System</div><div class="cs-q">Walk through Nutrition &amp; Energy</div><div class="cs-q">Show client results + case study</div><div style="font-size:11px;color:var(--t3);margin-top:8px;">"Built around your calendar, your travel, your life."</div></div>
+          <div class="cs"><div class="cs-time">35–42 min</div><div class="cs-title">Close</div><div style="font-size:12px;color:var(--t2);margin-bottom:8px;font-style:italic;">"Does this make sense for where you are?"</div><div style="font-size:12px;font-weight:700;margin-bottom:5px;color:var(--t1);">If YES:</div><div style="font-size:11px;color:var(--t2);">"Investment is $5,000. Split: $3,000 today + $2,000 week 6."</div><div style="font-size:11px;color:var(--amber);font-weight:700;margin-top:8px;">Silence after price. They speak first. Never negotiate the price — negotiate the start date.</div></div>
+          <div class="cs"><div class="cs-time">42–45 min</div><div class="cs-title">Objections</div><div class="cs-q">Too expensive</div><div class="cs-q">Need to think about it</div><div class="cs-q">Tried things before</div><div class="cs-q">I don't have time</div><div style="font-size:11px;color:var(--amber);margin-top:8px;font-weight:600;">Handle max 2 objections. A third = not qualified — let them go gracefully.</div></div>
+        </div>
+      </div>
+      <div class="sc" style="margin-bottom:14px;">
+        <div class="sc-hd"><div class="sc-ti">Objection Scripts</div></div>
+        <div class="obj-g">
+          <div class="obj-c"><div class="obj-q">It's too expensive</div><div class="obj-a">"Your business runs on your energy. If you're sharper and stronger for the next 12 weeks, what's that worth in decisions alone? Most clients tell me it paid for itself before week 6."</div></div>
+          <div class="obj-c"><div class="obj-q">I need to think about it</div><div class="obj-a">"What specifically? The investment, the timing, or something about the programme?" — isolate and address directly.</div></div>
+          <div class="obj-c"><div class="obj-q">I've tried things before and they didn't work</div><div class="obj-a">"You bought programs. This is coaching — I build it around your calendar and stay on you until it works. If you don't feel the difference in 30 days, I keep working for free."</div></div>
+          <div class="obj-c"><div class="obj-q">I don't have time</div><div class="obj-a">"That's exactly why this exists. Under 4 hours a week, built around your schedule — if you have time to scroll, you have time for this."</div></div>
+        </div>
+      </div>
+      <div class="sc">
+        <div class="sc-hd"><div class="sc-ti">Post-Call Sequence</div><div class="sc-su">Sent within minutes of hanging up — momentum matters</div></div>
+        <div class="obj-g" style="grid-template-columns:repeat(3,1fr);">
+          <div class="obj-c"><div class="obj-q" style="color:var(--green-deep);">If YES — send within 5 min</div><div class="obj-a">"Great talking to you [Name]. Here's the payment link: [LINK]. Once that's done I'll send you everything to get started 👊"</div></div>
+          <div class="obj-c"><div class="obj-q" style="color:var(--amber);">If MAYBE — send within 1 hr</div><div class="obj-a">"Hey [Name], great call today. I have one spot left this month. It's yours if you want it. Just say the word." <strong style="font-family:var(--font);font-style:normal;">No reply in 48h → one final message, then Closed Lost. Never chase a maybe twice.</strong></div></div>
+          <div class="obj-c"><div class="obj-q" style="color:var(--t3);">If NO</div><div class="obj-a">"No problem at all [Name]. If your situation changes, you know where to find me 👊"</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="view" id="v-content">
+      <div class="sc" style="margin-bottom:14px;">
+        <div class="sc-hd"><div class="sc-ti">Content Pillars</div><div class="sc-su">6 posts/week · Every piece moves the right person closer to buying</div></div>
+        <div class="pillars">
+          <div class="pill-c"><div class="pill-lbl a">🏆 Authority — 2×/wk</div><div class="pill-ti">Show the work. Show results.</div><div class="pill-ex">"How a London agency owner dropped 9kg in 12 weeks — while raising a round"<br><br>"What a founder's training week actually looks like: 3h 45m total"</div></div>
+          <div class="pill-c"><div class="pill-lbl e">💡 Education — 2×/wk</div><div class="pill-ti">Give so much value they feel stupid not hiring you.</div><div class="pill-ex">"The 3-message DM sequence that books 10 calls/month"<br><br>"Why your discovery calls don't convert (and the fix)"</div></div>
+          <div class="pill-c"><div class="pill-lbl p">❤️ Personal Brand — 1×/wk</div><div class="pill-ti">People buy from people. Show who you are.</div><div class="pill-ex">"The month I almost quit coaching and what changed"<br><br>"Why I fired 3 clients last year and made more money"</div></div>
+          <div class="pill-c"><div class="pill-lbl o">💰 Offer — 1×/wk</div><div class="pill-ti">No apologies. Direct. Clear.</div><div class="pill-ex">"We have 2 spots open this month. Here's who they're for"<br><br>"Client went from invisible to waitlist in 5 weeks"</div></div>
+        </div>
+      </div>
+      <div class="sc">
+        <div class="sc-hd"><div class="sc-ti">7-Story Sequence</div><div class="sc-su">Published every 7–10 days · One goal: book a call</div></div>
+        <div class="story-grid">
+          <div class="story-c"><div class="story-num">Story 1</div><div class="story-title">THE HOOK</div><div class="story-goal">"Are you a founder still running on caffeine and 5 hours of sleep?"<br><br>Bold text. Dark bg. One question.</div></div>
+          <div class="story-c"><div class="story-num">Story 2</div><div class="story-title">THE PROBLEM</div><div class="story-goal">"The business gets your best hours. Your body gets what's left."<br><br>Personal and direct. Make them feel understood.</div></div>
+          <div class="story-c"><div class="story-num">Story 3</div><div class="story-title">THE CONSEQUENCE</div><div class="story-goal">"You can't outsource your energy. Every decision runs through a tired brain."<br><br>Amplify the pain. Make staying the same dangerous.</div></div>
+          <div class="story-c"><div class="story-num">Story 4</div><div class="story-title">THE SOLUTION</div><div class="story-goal">"What if training fit your calendar — under 4 hours a week, anywhere?"<br><br>Create desire. Open the possibility.</div></div>
+          <div class="story-c"><div class="story-num">Story 5</div><div class="story-title">THE PROOF</div><div class="story-goal">"I helped a London agency owner drop 9kg in 12 weeks — during a raise."<br><br>Make the solution feel real and achievable.</div></div>
+          <div class="story-c soft"><div class="story-num">Story 6</div><div class="story-title">SOFT CTA</div><div class="story-goal">Poll: ✅ YES that's me / ❌ No<br><br>Everyone who votes YES gets a DM immediately.</div></div>
+          <div class="story-c cta"><div class="story-num">Story 7</div><div class="story-title">DIRECT CTA</div><div class="story-goal">"Reply with SHARP and I'll show you exactly how it works."<br><br>Filter serious buyers only. This converts.</div></div>
+        </div>
+      </div>
+<div class="sc">
+        <div class="sc-hd"><div class="sc-ti">30-Day Calendar &amp; Caption Templates</div><div class="sc-su">Real Month-1 content plan · R=Reel C=Carousel S=Story P=Photo</div></div>
+        <div class="ct-tabs">
+          <div class="ct-tab active" onclick="ctTab('cal',this)">30-Day Calendar</div>
+          <div class="ct-tab" onclick="ctTab('cap',this)">Caption Templates</div>
+        </div>
+        <div class="ct-panel on" id="ct-cal">
+          <div class="cal-wk">WEEK 1 — ESTABLISH AUTHORITY</div>
+          <div class="cal-grid">
+          <div class="cal-c"><div class="cal-d">Day 1<span class="cal-fmt">REEL</span></div><div class="cal-pillar">Authority</div><div class="cal-hook">This agency owner dropped 9kg in 12 weeks — while raising a round. Proof inside.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 2<span class="cal-fmt">STORY</span></div><div class="cal-pillar">Story Sequence</div><div class="cal-hook">Full 7-story sequence</div></div>
+          <div class="cal-c"><div class="cal-d">Day 3<span class="cal-fmt">CAROUSEL</span></div><div class="cal-pillar">Education</div><div class="cal-hook">Your 3pm crash has nothing to do with sleep. Here's what it really is.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 4<span class="cal-fmt">REEL</span></div><div class="cal-pillar">Personal Brand</div><div class="cal-hook">I trained athletes for years. Founders are harder. Here's why.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 5<span class="cal-fmt">CAROUSEL</span></div><div class="cal-pillar">Authority</div><div class="cal-hook">A founder's real training week: 3 hours 45 minutes. Total.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 6<span class="cal-fmt">PHOTO</span></div><div class="cal-pillar">Lifestyle</div><div class="cal-hook">Photo of James training a client. No text needed.</div></div>
+          <div class="cal-c rest"><div class="cal-d">Day 7<span class="cal-fmt">REST</span></div><div class="cal-pillar" style="color:var(--t3);">Recovery</div></div>
+          </div>
+          <div class="cal-wk">WEEK 2 — BUILD TRUST</div>
+          <div class="cal-grid">
+          <div class="cal-c"><div class="cal-d">Day 8<span class="cal-fmt">REEL</span></div><div class="cal-pillar">Education</div><div class="cal-hook">You don't need more discipline. You need a smaller system.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 9<span class="cal-fmt">STORY</span></div><div class="cal-pillar">Story Sequence</div><div class="cal-hook">Full 7-story sequence</div></div>
+          <div class="cal-c"><div class="cal-d">Day 10<span class="cal-fmt">CAROUSEL</span></div><div class="cal-pillar">Authority</div><div class="cal-hook">From 5 coffees a day to training at 6am. A client story.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 11<span class="cal-fmt">REEL</span></div><div class="cal-pillar">Offer</div><div class="cal-hook">Not every founder qualifies to work with me. Here's who does.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 12<span class="cal-fmt">CAROUSEL</span></div><div class="cal-pillar">Education</div><div class="cal-hook">Steal my travel workout — 25 minutes, hotel room, zero equipment.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 13<span class="cal-fmt">PHOTO</span></div><div class="cal-pillar">Lifestyle</div><div class="cal-hook">Photo of James at a premium location.</div></div>
+          <div class="cal-c rest"><div class="cal-d">Day 14<span class="cal-fmt">REST</span></div><div class="cal-pillar" style="color:var(--t3);">Recovery</div></div>
+          </div>
+          <div class="cal-wk">WEEK 3 — DRIVE DESIRE</div>
+          <div class="cal-grid">
+          <div class="cal-c"><div class="cal-d">Day 15<span class="cal-fmt">REEL</span></div><div class="cal-pillar">Authority</div><div class="cal-hook">He ran a £2M business and couldn't take the stairs without losing breath. 12 weeks later…</div></div>
+          <div class="cal-c"><div class="cal-d">Day 16<span class="cal-fmt">STORY</span></div><div class="cal-pillar">Story Sequence</div><div class="cal-hook">Full 7-story sequence</div></div>
+          <div class="cal-c"><div class="cal-d">Day 17<span class="cal-fmt">CAROUSEL</span></div><div class="cal-pillar">Education</div><div class="cal-hook">Hard truth: your business will never outperform your energy.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 18<span class="cal-fmt">REEL</span></div><div class="cal-pillar">Personal Brand</div><div class="cal-hook">What I eat in a day — and why it's simpler than you think.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 19<span class="cal-fmt">CAROUSEL</span></div><div class="cal-pillar">Offer</div><div class="cal-hook">No fluff. No vague promises. Every single thing my clients get.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 20<span class="cal-fmt">PHOTO</span></div><div class="cal-pillar">Lifestyle</div><div class="cal-hook">Photo. No caption.</div></div>
+          <div class="cal-c rest"><div class="cal-d">Day 21<span class="cal-fmt">REST</span></div><div class="cal-pillar" style="color:var(--t3);">Recovery</div></div>
+          </div>
+          <div class="cal-wk">WEEK 4 — CONVERT</div>
+          <div class="cal-grid">
+          <div class="cal-c"><div class="cal-d">Day 22<span class="cal-fmt">REEL</span></div><div class="cal-pillar">Education</div><div class="cal-hook">The 4 mistakes every busy founder makes with training. Number 3 costs you years.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 23<span class="cal-fmt">STORY</span></div><div class="cal-pillar">Story Sequence</div><div class="cal-hook">Full 7-story sequence</div></div>
+          <div class="cal-c"><div class="cal-d">Day 24<span class="cal-fmt">CAROUSEL</span></div><div class="cal-pillar">Authority</div><div class="cal-hook">Real clients. Real numbers. 9kg, 11kg, 7kg down. No filters.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 25<span class="cal-fmt">REEL</span></div><div class="cal-pillar">Offer</div><div class="cal-hook">3 spots. 12 weeks. Built around your calendar. Here's how it works.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 26<span class="cal-fmt">CAROUSEL</span></div><div class="cal-pillar">Education</div><div class="cal-hook">No gym needed. No 2-hour sessions. Just this system.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 27<span class="cal-fmt">PHOTO</span></div><div class="cal-pillar">Lifestyle</div><div class="cal-hook">Photo. Premium setting.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 28<span class="cal-fmt">REEL</span></div><div class="cal-pillar">Personal Brand</div><div class="cal-hook">If I could talk to myself at 30, I'd say exactly this.</div></div>
+          <div class="cal-c"><div class="cal-d">Day 29<span class="cal-fmt">STORY</span></div><div class="cal-pillar">Story Sequence</div><div class="cal-hook">Final sequence of the month. Most aggressive CTA — “Last 2 spots. Reply SHARP.”</div></div>
+          <div class="cal-c rest"><div class="cal-d">Day 30<span class="cal-fmt">REST</span></div><div class="cal-pillar" style="color:var(--t3);">Recovery</div></div>
+          </div>
+        </div>
+        <div class="ct-panel" id="ct-cap">
+          <div class="cap-c"><div class="cap-lbl">Authority</div><div class="cap-body">He was running a £2M agency and couldn't get through the afternoon without a third coffee.
+
+Here's what happened:
+
+Marcus had built a great business. Great team. Zero structure for himself. Training happened "when there was time" — which meant never.
+
+What we changed:
+→ Built a 4-hour training week around his calendar
+→ Fixed the food without killing business dinners
+→ Weekly accountability, zero guesswork
+
+The result: 9kg down in 12 weeks. Training 4x/week. Sharper in every meeting — his words, not mine.
+
+Comment SHARP and I'll show you exactly how we did it.</div></div>
+          <div class="cap-c"><div class="cap-lbl">Education</div><div class="cap-body">Your energy isn't a willpower problem. It's a systems problem.
+
+Most founders get this wrong. Here's the truth:
+
+You're training like you have 2 free hours a day.
+You're eating like your decisions don't depend on it.
+You're treating sleep as negotiable.
+
+The founders who fix this are the ones who outlast everyone else in their market.
+
+Save this. You'll need it.</div></div>
+          <div class="cap-c"><div class="cap-lbl">Personal Brand</div><div class="cap-body">Year 2 of my coaching business I was ready to quit.
+
+I had clients. I had results. But I was working 60-hour weeks and my own health was the first thing I sacrificed. The irony wasn't lost on me.
+
+What changed everything: I stopped selling sessions and built a system — for my clients and for myself.
+
+Now: 7 clients I genuinely love working with. A waitlist. And I train every single day.
+
+The lesson: You don't need more hustle. You need a better system.</div></div>
+          <div class="cap-c"><div class="cap-lbl">Offer</div><div class="cap-body">2 spots left this month. Here's exactly what you get.
+
+→ Full training system built around your calendar (under 4 hours/week)
+→ Nutrition framework that survives business dinners and travel
+→ Weekly 1:1 check-ins and adjustments
+→ Direct access to me, every day
+→ 12 weeks of accountability until it sticks
+
+Investment: $5,000 · Timeline: 12 weeks
+Guarantee: feel the difference in 30 days or I keep working for free.
+
+DM me SHARP if you want one.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULES -->
+    <div class="view" id="v-modules">
+      <div class="mod-grid">
+        <div class="mod-card done"><div class="mod-hd"><div class="mod-ico">01</div><div class="mod-info"><div class="mod-ti">🎯 Business Identity</div><div class="mod-wk">Week 1</div></div><div class="mod-badge mb-done">✓ Complete</div></div><div class="mod-tasks"><div class="mod-task"><div class="tc d">✓</div>Ideal Client Profile — Founders &amp; execs UK, £500K–£5M</div><div class="mod-task"><div class="tc d">✓</div>Offer repositioned — $3,000 → $5,000 per client</div><div class="mod-task"><div class="tc d">✓</div>Unique positioning — "performance coach for founders"</div><div class="mod-task"><div class="tc d">✓</div>Brand statement + Instagram bio rewritten</div></div><div class="mod-pg"><div class="mod-pg-f" style="width:100%"></div></div></div>
+        <div class="mod-card done"><div class="mod-hd"><div class="mod-ico">02</div><div class="mod-info"><div class="mod-ti">📣 Content System</div><div class="mod-wk">Week 1–2</div></div><div class="mod-badge mb-done">✓ Complete</div></div><div class="mod-tasks"><div class="mod-task"><div class="tc d">✓</div>4 Content Pillars (Authority / Education / Personal / Offer)</div><div class="mod-task"><div class="tc d">✓</div>7-Story Sequence live — 4 organic DMs in week 1</div><div class="mod-task"><div class="tc d">✓</div>30-Day Content Calendar live</div><div class="mod-task"><div class="tc d">✓</div>Caption templates for each pillar</div></div><div class="mod-pg"><div class="mod-pg-f" style="width:100%"></div></div></div>
+        <div class="mod-card done"><div class="mod-hd"><div class="mod-ico">03</div><div class="mod-info"><div class="mod-ti">📩 Outbound System</div><div class="mod-wk">Week 2</div></div><div class="mod-badge mb-done">✓ Complete</div></div><div class="mod-tasks"><div class="mod-task"><div class="tc d">✓</div>Target profile defined — UK founders &amp; execs, active on IG/LinkedIn</div><div class="mod-task"><div class="tc d">✓</div>5-Message DM sequence (word-for-word scripts)</div><div class="mod-task"><div class="tc d">✓</div>40-60 new DMs/day + follow-ups — first 3 replies in 48hrs</div><div class="mod-task"><div class="tc d">✓</div>4 objection scripts for main DM objections</div></div><div class="mod-pg"><div class="mod-pg-f" style="width:100%"></div></div></div>
+        <div class="mod-card done"><div class="mod-hd"><div class="mod-ico">04</div><div class="mod-info"><div class="mod-ti">💰 Sales System</div><div class="mod-wk">Week 3</div></div><div class="mod-badge mb-done">✓ Complete</div></div><div class="mod-tasks"><div class="mod-task"><div class="tc d">✓</div>45-min call framework (5 phases)</div><div class="mod-task"><div class="tc d">✓</div>Pre-call + post-call sequences</div><div class="mod-task"><div class="tc d">✓</div>4 objection scripts — price, timing, failures, no money</div><div class="mod-task"><div class="tc d">✓</div>58% close rate — 7 of 12 proposals closed</div></div><div class="mod-pg"><div class="mod-pg-f" style="width:100%"></div></div></div>
+        <div class="mod-card done"><div class="mod-hd"><div class="mod-ico">05</div><div class="mod-info"><div class="mod-ti">📊 Pipeline & Tracker</div><div class="mod-wk">Week 3–4</div></div><div class="mod-badge mb-done">✓ Complete</div></div><div class="mod-tasks"><div class="mod-task"><div class="tc d">✓</div>7-stage pipeline (Contacted → Closed Won / Lost)</div><div class="mod-task"><div class="tc d">✓</div>20 named prospects tracked with sources + dates</div><div class="mod-task"><div class="tc d">✓</div>Revenue: $35K Month 1 · $25K pipeline open</div></div><div class="mod-pg"><div class="mod-pg-f" style="width:100%"></div></div></div>
+        <div class="mod-card done"><div class="mod-hd"><div class="mod-ico">06</div><div class="mod-info"><div class="mod-ti">📈 Weekly Metrics</div><div class="mod-wk">Week 4</div></div><div class="mod-badge mb-done">✓ Complete</div></div><div class="mod-tasks"><div class="mod-task"><div class="tc d">✓</div>Weekly review template — Outbound + Content + Sales</div><div class="mod-task"><div class="tc d">✓</div>4 weeks of real data tracked and analysed</div><div class="mod-task"><div class="tc d">✓</div>Month 2: $45K target · Price raised to $6,000</div></div><div class="mod-pg"><div class="mod-pg-f" style="width:100%"></div></div></div>
+        <div class="mod-card done" style="grid-column:span 2;"><div class="mod-hd"><div class="mod-ico">07</div><div class="mod-info"><div class="mod-ti">⚙️ SOPs</div><div class="mod-wk">Week 5 — Handover</div></div><div class="mod-badge mb-done">✓ Complete</div></div><div class="mod-tasks" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;"><div class="mod-task"><div class="tc d">✓</div>SOP 1: Daily Outbound (60min · 8–9am)</div><div class="mod-task"><div class="tc d">✓</div>SOP 2: Story Sequence (45min · every 7-10 days)</div><div class="mod-task"><div class="tc d">✓</div>SOP 3: Content Publishing (3hrs/week)</div><div class="mod-task"><div class="tc d">✓</div>SOP 4: Sales Call Prep (15min · before every call)</div><div class="mod-task"><div class="tc d">✓</div>SOP 5: Weekly Review (30min · every Sunday)</div><div class="mod-task"><div class="tc d">✓</div>SOP 6: Client Wins (20min · every milestone)</div></div><div class="mod-pg"><div class="mod-pg-f" style="width:100%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- METRICS -->
+    <div class="view" id="v-metrics">
+      <div class="kpi-g" style="margin-bottom:20px;">
+        <div class="kpi hi"><div class="kl">Total Revenue</div><div class="kv g">$35,000</div><div class="ks">Month 1 · Target $45K M2</div></div>
+        <div class="kpi"><div class="kl">Avg reply rate</div><div class="kv">9.3%</div><div class="kt up">8.4% → 9.8% over 4 weeks</div></div>
+        <div class="kpi"><div class="kl">Best content piece</div><div class="kv" style="font-size:16px;">18K views</div><div class="kt up">Personal brand reel Wk3</div></div>
+        <div class="kpi"><div class="kl">Month 2 price</div><div class="kv">$6,000</div><div class="kt up">+$1,000 from Month 1</div></div>
+      </div>
+      <div class="sc">
+        <div class="sc-hd"><div class="sc-ti">Week-by-Week Breakdown</div><div class="sc-su">Real data from Month 1</div></div>
+        <div class="wk-tabs">
+          <div class="wk-tab active" onclick="wkTab(1,this)">Week 1</div>
+          <div class="wk-tab" onclick="wkTab(2,this)">Week 2</div>
+          <div class="wk-tab" onclick="wkTab(3,this)">Week 3</div>
+          <div class="wk-tab" onclick="wkTab(4,this)">Week 4</div>
+        </div>
+        <div class="wk-panel on" id="wk1"><div class="wm-blk"><div class="wm-sec">📩 Outbound</div><div class="wm-row"><div class="wm-k">Contacts sent</div><div class="wm-v g">800</div></div><div class="wm-row"><div class="wm-k">Replies</div><div class="wm-v">67 (8.4%)</div></div><div class="wm-row"><div class="wm-k">Calls booked</div><div class="wm-v">4</div></div><div class="wm-row"><div class="wm-k">Best message</div><div class="wm-v" style="font-size:11px;">Message 1 variant B</div></div></div><div class="wm-blk"><div class="wm-sec">📣 Content</div><div class="wm-row"><div class="wm-k">Posts published</div><div class="wm-v">5</div></div><div class="wm-row"><div class="wm-k">Story sequences</div><div class="wm-v">1</div></div><div class="wm-row"><div class="wm-k">Organic DMs</div><div class="wm-v">8</div></div><div class="wm-row"><div class="wm-k">Best piece</div><div class="wm-v" style="font-size:11px;">Reel — 9kg in 12 weeks</div></div></div><div class="wm-blk"><div class="wm-sec">💰 Sales</div><div class="wm-row"><div class="wm-k">Calls completed</div><div class="wm-v">5</div></div><div class="wm-row"><div class="wm-k">Clients closed</div><div class="wm-v">2</div></div><div class="wm-row"><div class="wm-k">Revenue</div><div class="wm-v g">$10,000</div></div><div class="wm-row"><div class="wm-k">Close rate</div><div class="wm-v">66%</div></div></div><div class="wm-blk"><div class="wm-sec">📋 Notes</div><div class="wm-note">Story sequence generated 8 DMs organically in week 1. Message 1 with specific reference to their content had 3x higher reply rate. Follow-up sequence moved from Day 3 → Day 2.</div></div></div>
+        <div class="wk-panel" id="wk2"><div class="wm-blk"><div class="wm-sec">📩 Outbound</div><div class="wm-row"><div class="wm-k">Contacts sent</div><div class="wm-v g">950</div></div><div class="wm-row"><div class="wm-k">Replies</div><div class="wm-v">89 (9.4%)</div></div><div class="wm-row"><div class="wm-k">Calls booked</div><div class="wm-v">6</div></div><div class="wm-row"><div class="wm-k">Best message</div><div class="wm-v" style="font-size:11px;">Message 1 — personalised compliment</div></div></div><div class="wm-blk"><div class="wm-sec">📣 Content</div><div class="wm-row"><div class="wm-k">Posts published</div><div class="wm-v">5</div></div><div class="wm-row"><div class="wm-k">Story sequences</div><div class="wm-v">1</div></div><div class="wm-row"><div class="wm-k">Organic DMs</div><div class="wm-v">12</div></div><div class="wm-row"><div class="wm-k">Best piece</div><div class="wm-v" style="font-size:11px;">Carousel — the 3pm crash</div></div></div><div class="wm-blk"><div class="wm-sec">💰 Sales</div><div class="wm-row"><div class="wm-k">Calls completed</div><div class="wm-v">7</div></div><div class="wm-row"><div class="wm-k">Clients closed</div><div class="wm-v">2</div></div><div class="wm-row"><div class="wm-k">Revenue</div><div class="wm-v g">$10,000</div></div><div class="wm-row"><div class="wm-k">Close rate</div><div class="wm-v">50%</div></div></div><div class="wm-blk"><div class="wm-sec">📋 Notes</div><div class="wm-note">Carousel got 12 saves and 4 DMs. Education content outperformed authority. 2 no-shows → pre-call reminder added 1hr before. Double down on carousels next week.</div></div></div>
+        <div class="wk-panel" id="wk3"><div class="wm-blk"><div class="wm-sec">📩 Outbound</div><div class="wm-row"><div class="wm-k">Contacts sent</div><div class="wm-v g">1,100</div></div><div class="wm-row"><div class="wm-k">Replies</div><div class="wm-v">102 (9.3%)</div></div><div class="wm-row"><div class="wm-k">Calls booked</div><div class="wm-v">8</div></div><div class="wm-row"><div class="wm-k">Best message</div><div class="wm-v" style="font-size:11px;">Message 4 — case study follow up</div></div></div><div class="wm-blk"><div class="wm-sec">📣 Content</div><div class="wm-row"><div class="wm-k">Posts published</div><div class="wm-v">6</div></div><div class="wm-row"><div class="wm-k">Story sequences</div><div class="wm-v">1</div></div><div class="wm-row"><div class="wm-k">Organic DMs</div><div class="wm-v">15</div></div><div class="wm-row"><div class="wm-k">Best piece</div><div class="wm-v g" style="font-size:11px;">18K views — "Year 2 I was ready to quit"</div></div></div><div class="wm-blk"><div class="wm-sec">💰 Sales</div><div class="wm-row"><div class="wm-k">Calls completed</div><div class="wm-v">8</div></div><div class="wm-row"><div class="wm-k">Clients closed</div><div class="wm-v">2</div></div><div class="wm-row"><div class="wm-k">Revenue</div><div class="wm-v g">$10,000</div></div><div class="wm-row"><div class="wm-k">Close rate</div><div class="wm-v">66%</div></div></div><div class="wm-blk"><div class="wm-sec">📋 Notes</div><div class="wm-note">Personal brand reel 18K views — highest organic reach. Story DM volume growing each week. Objection handling for "I need to think about it" needs role play.</div></div></div>
+        <div class="wk-panel" id="wk4"><div class="wm-blk"><div class="wm-sec">📩 Outbound</div><div class="wm-row"><div class="wm-k">Contacts sent</div><div class="wm-v g">1,200</div></div><div class="wm-row"><div class="wm-k">Replies</div><div class="wm-v g">118 (9.8%)</div></div><div class="wm-row"><div class="wm-k">Calls booked</div><div class="wm-v">10</div></div><div class="wm-row"><div class="wm-k">Best message</div><div class="wm-v" style="font-size:11px;">Message 1 — personalised compliment</div></div></div><div class="wm-blk"><div class="wm-sec">📣 Content</div><div class="wm-row"><div class="wm-k">Posts published</div><div class="wm-v">6</div></div><div class="wm-row"><div class="wm-k">Organic DMs</div><div class="wm-v g">19</div></div><div class="wm-row"><div class="wm-k">Best piece</div><div class="wm-v" style="font-size:11px;">"2 spots left" — 19 DMs in 24hrs</div></div></div><div class="wm-blk"><div class="wm-sec">💰 Sales</div><div class="wm-row"><div class="wm-k">Calls completed</div><div class="wm-v">8</div></div><div class="wm-row"><div class="wm-k">Clients closed</div><div class="wm-v">1</div></div><div class="wm-row"><div class="wm-k">Revenue</div><div class="wm-v">$5,000</div></div><div class="wm-row"><div class="wm-k">Close rate</div><div class="wm-v">50%</div></div></div><div class="wm-blk"><div class="wm-sec">📋 Notes</div><div class="wm-note">Scarcity reel drove highest DM volume (19 DMs/24hrs). Reply rate all-time high 9.8%. Month 2: raise price $6,000 · Double down on founder referrals.</div></div></div>
+      </div>
+    </div>
+
+    <!-- SOPs -->
+    <div class="view" id="v-sops">
+      <div class="sop-list">
+        <div class="sop-c"><div class="sop-hd" onclick="toggleSop(this)"><span class="sop-num">SOP 1</span><span class="sop-name">Daily Outbound Routine</span><span class="sop-meta">60 min · Every morning 8:00–9:00</span><span class="sop-arrow">▴</span></div><div class="sop-body on"><div class="sop-step"><div class="ss-n">1</div><div><div class="ss-ti">Warm-up + safety check (5 min)</div><div class="ss-de">Open Instagram and engage naturally first — reply to 5–10 comments, react to stories. Never start the day cold-blasting DMs. <strong>Account limits: max 60 new DMs/day, never more than 15–20/hour.</strong> Account under 3 months old: start at 20/day, add 10/week.</div></div></div><div class="sop-step"><div class="ss-n">2</div><div><div class="ss-ti">Follow-ups first (15 min)</div><div class="ss-de">Lead Tracker → filter prospects on Day 3, 5 and 7. Send the exact follow-up for their stage, update status. Follow-ups convert 2–3× better than cold openers — they always go first.</div></div></div><div class="sop-step"><div class="ss-n">3</div><div><div class="ss-ti">New Message 1s (25 min)</div><div class="ss-de">40–60 new prospects. <strong>Qualified =</strong> UK/US founder or exec · 35–50 · real business visible (team, product, clients) · active in the last 7 days · talks about workload, travel or low energy. <strong>Disqualify:</strong> athletes, gym regulars, no real company behind the profile. Personalise line 1 with something from their last 2 weeks of content — never copy-paste it.</div></div></div><div class="sop-step"><div class="ss-n">4</div><div><div class="ss-ti">Replies + tracker hygiene (15 min)</div><div class="ss-de">Answer every reply with the DM scripts. Move each lead to its true stage, book calls via Calendly inside the conversation. <strong>Definition of done:</strong> inbox at zero, tracker current, day logged (new sent · follow-ups · replies · calls).</div></div></div></div></div>
+        <div class="sop-c"><div class="sop-hd" onclick="toggleSop(this)"><span class="sop-num">SOP 2</span><span class="sop-name">Story Sequence Publishing</span><span class="sop-meta">45 min active · Every 7–10 days</span><span class="sop-arrow">▾</span></div><div class="sop-body"><div class="sop-step"><div class="ss-n">1</div><div><div class="ss-ti">Build the 7 stories (25 min)</div><div class="ss-de">Use the Story Sequence templates in Canva. Update Story 5 (Proof) with the latest client result — <strong>never run the sequence twice with the same proof.</strong> Export as individual images/videos.</div></div></div><div class="sop-step"><div class="ss-n">2</div><div><div class="ss-ti">Publish spaced across the day</div><div class="ss-de">Story 1 at 8:30am → one every 90–120 min → Story 7 lands 7–9pm. Never post two at once; completion rate collapses.</div></div></div><div class="sop-step"><div class="ss-n">3</div><div><div class="ss-ti">Work the poll in real time (15 min)</div><div class="ss-de">DM every YES within 60 minutes: "Hey [Name], saw your vote — is this something you're actively trying to fix right now?" Also DM anyone who replies to <em>any</em> story — a story reply is hotter than a cold opener. Log them as Replied.</div></div></div><div class="sop-step"><div class="ss-n">4</div><div><div class="ss-ti">Score it next morning</div><div class="ss-de"><strong>Good sequence = 25+ poll votes and 5+ conversations started.</strong> Below that twice in a row → rewrite Stories 1–3 (the hook chain) before running it again.</div></div></div></div></div>
+        <div class="sop-c"><div class="sop-hd" onclick="toggleSop(this)"><span class="sop-num">SOP 3</span><span class="sop-name">Content Publishing</span><span class="sop-meta">3 hrs/week · Batch on Tuesday</span><span class="sop-arrow">▾</span></div><div class="sop-body"><div class="sop-step"><div class="ss-n">Mon</div><div><div class="ss-ti">Plan + prep (30 min)</div><div class="ss-de">30-Day Calendar → pick the week's 5–6 pieces. Write captions from the templates. List exactly what needs filming.</div></div></div><div class="sop-step"><div class="ss-n">Tue</div><div><div class="ss-ti">Batch film (60 min)</div><div class="ss-de">Film both Reels plus 3–4 B-roll clips in one session. Minimum two takes per hook. One session, whole week covered.</div></div></div><div class="sop-step"><div class="ss-n">Tue/Thu</div><div><div class="ss-ti">Edit + publish (30 min each)</div><div class="ss-de">Subtitles always · hook on screen in the first 2 seconds · under 45s · CTA with the keyword. Publish 7–9am or 6–8pm UK. <strong>Quality bar: would a founder stop scrolling in the first 2 seconds? If not, re-cut the hook.</strong></div></div></div><div class="sop-step"><div class="ss-n">Daily</div><div><div class="ss-ti">Engage (10 min)</div><div class="ss-de">Every comment answered within 1 hour of posting. Every content DM answered same day. Comments are lead generation, not admin.</div></div></div></div></div>
+        <div class="sop-c"><div class="sop-hd" onclick="toggleSop(this)"><span class="sop-num">SOP 4</span><span class="sop-name">Sales Call Preparation</span><span class="sop-meta">15 min · 30 min before every call</span><span class="sop-arrow">▾</span></div><div class="sop-body"><div class="sop-step"><div class="ss-n">1</div><div><div class="ss-ti">Research the person (5 min)</div><div class="ss-de">Their company (what it does, rough size), their content (energy and fitness signals, what they complain about), their pre-call answers. Write down <strong>2 specific details</strong> to reference in the first 5 minutes.</div></div></div><div class="sop-step"><div class="ss-n">2</div><div><div class="ss-ti">Prepare the screen share (5 min)</div><div class="ss-de">Client results ready — before/after photos + the 9kg case study. The 12-week plan overview open. <strong>Close every other tab.</strong> Nothing on screen but proof and the plan.</div></div></div><div class="sop-step"><div class="ss-n">3</div><div><div class="ss-ti">Environment + mindset (5 min)</div><div class="ss-de">Quiet room, camera at eye level, headset, water. Re-read the 5-phase framework once. <strong>Diagnose for 15 minutes before mentioning the programme. Silence after the price.</strong></div></div></div></div></div>
+        <div class="sop-c"><div class="sop-hd" onclick="toggleSop(this)"><span class="sop-num">SOP 5</span><span class="sop-name">Weekly Review</span><span class="sop-meta">30 min · Every Sunday evening</span><span class="sop-arrow">▾</span></div><div class="sop-body"><div class="sop-step"><div class="ss-n">1</div><div><div class="ss-ti">Fill Weekly Metrics (10 min)</div><div class="ss-de">All numbers, no gaps: outbound (sent, replies, reply %), stories (votes, conversations), content (posts, best piece <em>by DMs</em>), sales (calls, shows, closes), revenue.</div></div></div><div class="sop-step"><div class="ss-n">2</div><div><div class="ss-ti">Decide with thresholds (15 min)</div><div class="ss-de"><strong>Reply rate &lt; 7%</strong> → rewrite Message 1 before Monday. <strong>Show rate &lt; 80%</strong> → tighten the pre-call sequence. <strong>Poll &lt; 25 votes twice</strong> → rebuild the hook chain. Best content piece → schedule a variation next week. The numbers decide, not the mood.</div></div></div><div class="sop-step"><div class="ss-n">3</div><div><div class="ss-ti">Reset the board (5 min)</div><div class="ss-de">Every pipeline lead in its true stage. Dead leads → Closed Lost <strong>with the reason written down.</strong> The tracker only works if it's true.</div></div></div></div></div>
+        <div class="sop-c"><div class="sop-hd" onclick="toggleSop(this)"><span class="sop-num">SOP 6</span><span class="sop-name">Client Wins & Testimonials</span><span class="sop-meta">20 min · The day a client hits a milestone</span><span class="sop-arrow">▾</span></div><div class="sop-body"><div class="sop-step"><div class="ss-n">1</div><div><div class="ss-ti">Capture it same-day</div><div class="ss-de">The number (kg, weeks in, energy score), a direct quote, a screenshot of the message where they told you. Ask permission in the same conversation: "Can I share this? First name only if you prefer."</div></div></div><div class="sop-step"><div class="ss-n">2</div><div><div class="ss-ti">Bank it in two formats</div><div class="ss-de">A 2-line version (number + quote) for stories and DMs · a 60-second version (context → what changed → result) scripted for a Reel.</div></div></div><div class="sop-step"><div class="ss-n">3</div><div><div class="ss-ti">Deploy within 7 days</div><div class="ss-de">The win goes into Story 5 of the next sequence and one Authority post. <strong>Fresh proof outsells old proof — never sit on a win.</strong></div></div></div></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     NOTION SETUP MODAL
+═══════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-ti">Connect Client Notion</div>
+    <div class="modal-su">Secure mode — this panel never touches a raw Notion token.</div>
+    <div class="notion-guide">
+      <strong>How this works:</strong><br>
+      Your Notion token lives only in your GrowthStack Worker (server-side), registered once via <code>/admin/register</code>. This panel just needs the <strong>Worker URL</strong> and this client's <strong>Client Key</strong> — both safe to leave in a delivered file.
+    </div>
+    <div class="modal-field"><label>Client Name</label><input type="text" id="cfg-name" placeholder="James Carter"></div>
+    <div class="modal-field"><label>Niche / Market</label><input type="text" id="cfg-niche" placeholder="Performance Coach · UK Market"></div>
+    <div class="modal-row">
+      <div class="modal-field"><label>Worker URL</label><input type="text" id="cfg-worker" placeholder="https://growthstack-proxy.xxx.workers.dev"></div>
+      <div class="modal-field"><label>Client Key</label><input type="text" id="cfg-clientkey" placeholder="jamescarter"></div>
+    </div>
+    <div class="modal-row">
+      <div class="modal-field"><label>Programme</label><input type="text" id="cfg-programme" placeholder="The Acquisition Blueprint"></div>
+      <div class="modal-field"><label>Current Month</label><input type="text" id="cfg-month" placeholder="Month 1 · $35K"></div>
+    </div>
+    <div id="modal-status" style="font-size:12px;color:var(--t3);margin-top:8px;min-height:20px;"></div>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="saveConfig()">Save & Connect</button>
+      <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// CLIENT CONFIG — Edita esto antes de entregar al cliente
+// ═══════════════════════════════════════════════════════════
+const CLIENT_CONFIG = {
+  clientName:  "James Carter",
+  clientNiche: "Performance Coach",
+  clientMarket:"UK Market",
+  programme:   "The Acquisition Blueprint",
+  currentMonth:"Month 1 · $35K",
+  workerUrl:   "",       // https://growthstack-proxy.TU-SUBDOMINIO.workers.dev
+  clientKey:   "",       // clave asignada a este cliente vía /admin/register — NUNCA el token real
+};
+// ═══════════════════════════════════════════════════════════
+// El token de Notion de este cliente NO vive aquí. Vive solo en tu
+// Cloudflare Worker (ver growthstack-worker.js). Este archivo es seguro
+// de entregar tal cual, incluso con workerUrl/clientKey rellenos.
+// ═══════════════════════════════════════════════════════════
+
+// ——— PIPELINE DATA (demo + real data from Notion exports) ———
+const DEMO_PIPELINE = {
+  contacted:[
+    {id:'c1',name:'Priya Patel',meta:'Agency Founder · Manchester',tags:['ig'],val:'DM Outbound · Week 5 Day 1'},
+    {id:'c2',name:'Daniel Foster',meta:'E-com Founder · Leeds',tags:['st'],val:'Story Reply · Week 5 Day 2'},
+    {id:'c3',name:'Grace Adeyemi',meta:'Consultancy Owner · Cardiff',tags:['ig'],val:'DM Outbound · Week 5 Day 2'},
+  ],
+  replied:[
+    {id:'r1',name:'Sophie Turner',meta:'SaaS Founder · Glasgow',tags:['ig','warm'],val:'Replied to Message 1'},
+    {id:'r2',name:'Ben Coleman',meta:'Managing Director · Bristol',tags:['st','warm'],val:'Voted YES on Story poll'},
+  ],
+  'call-booked':[
+    {id:'b1',name:'Rachel Kim',meta:'Agency Owner · London',tags:['ig','hot'],val:'Booked via Calendly'},
+    {id:'b2',name:'Chloe Whitfield',meta:'Recruitment Founder · Leeds',tags:['st'],val:'Booked after Story 7 DM'},
+  ],
+  'call-completed':[
+    {id:'p1',name:'Michael Brooks',meta:'Law Firm Partner · Edinburgh',tags:['ig','hot'],val:'Call completed · Awaiting proposal'},
+  ],
+  'proposal-sent':[],
+  'closed-won':[
+    {id:'w1',name:'James Morris',meta:'Agency Founder · London',tags:['ig'],val:'$5,000 · Paid in full · Week 1'},
+    {id:'w2',name:'Sarah Chen',meta:'E-com Founder · Birmingham',tags:['st'],val:'$5,000 · Split payment · Week 2'},
+    {id:'w3',name:'Emma Watson',meta:'Studio Owner · Manchester',tags:['ig'],val:'$5,000 · Paid in full · Week 2'},
+    {id:'w4',name:'David Clark',meta:'Consultant · Bristol',tags:['st'],val:'$5,000 · Split payment · Week 2'},
+    {id:'w5',name:'Lisa Park',meta:'SaaS Founder · Leeds',tags:['ig'],val:'$5,000 · Paid in full · Week 3'},
+    {id:'w6',name:'Tom Hughes',meta:'Finance Director · Edinburgh',tags:['st'],val:'$5,000 · Split payment · Week 3'},
+    {id:'w7',name:'Anna Scott',meta:'Agency Owner · London',tags:['ig'],val:'$5,000 · Paid in full · Week 4'},
+  ],
+  'closed-lost':[
+    {id:'l1',name:'Mark Reid',meta:'Property Developer · London',tags:['ig'],val:'Price objection · Week 2'},
+    {id:'l2',name:'Claire Fox',meta:'Startup Founder · Glasgow',tags:['st'],val:'Bad timing — fundraising · Week 3'},
+    {id:'l3',name:'Ryan West',meta:'Creative Director · London',tags:['ig'],val:'Already has a trainer · Week 3'},
+    {id:'l4',name:'Beth Lane',meta:'Boutique Owner · Cardiff',tags:['st'],val:'Price objection · Week 4'},
+    {id:'l5',name:'John Mills',meta:'Restaurant Owner · Belfast',tags:['ig'],val:'Not ready to commit · Week 4'},
+  ],
+};
+
+const DAILY_DEMO = [
+  {day:'Monday',sent:800,replies:67,calls:4,msg:'Message 1 variant B',notes:'Story sequence generating organic DMs'},
+  {day:'Tuesday',sent:160,replies:14,calls:1,msg:'Message 1',notes:'Follow ups from Day 3 sent'},
+  {day:'Wednesday',sent:165,replies:12,calls:1,msg:'Message 1',notes:'Story sequence published'},
+  {day:'Thursday',sent:170,replies:16,calls:2,msg:'Message 2',notes:'First calls booked'},
+  {day:'Friday',sent:155,replies:13,calls:0,msg:'Message 1',notes:'2 replies moved to next week'},
+  {day:'Saturday',sent:50,replies:5,calls:0,msg:'Message 3',notes:'Follow ups only'},
+  {day:'Sunday',sent:0,replies:7,calls:0,msg:'—',notes:'Weekly review completed'},
+];
+
+const COLS = [
+  {key:'contacted',label:'Contacted'},
+  {key:'replied',label:'Replied'},
+  {key:'call-booked',label:'Call Booked'},
+  {key:'call-completed',label:'Completed'},
+  {key:'proposal-sent',label:'Proposal Sent'},
+  {key:'closed-won',label:'Closed Won'},
+  {key:'closed-lost',label:'Closed Lost'},
+];
+const TAG_LABELS = {ig:'Instagram',st:'Story Reply',hot:'Hot',warm:'Warm',ref:'Referral'};
+const TITLES = {
+  dashboard:['Dashboard','· Performance Coach · UK Market'],
+  identity:['Business Identity','· Positioning, ICP & competitive edge'],
+  pipeline:['Pipeline','· 20 contacts across 7 stages'],
+  outbound:['Outbound System','· 4,050 contacts · 376 replies · 9.3% reply rate'],
+  sales:['Sales Framework','· 28 calls · 7 closed · 58% close rate'],
+  content:['Content System','· 4 pillars · 7-story sequence · 30-day calendar'],
+  modules:['Blueprint Modules','· All 7 complete · Month 1'],
+  metrics:['Weekly Metrics','· 4 weeks of real data · $35,000 revenue'],
+  sops:['SOPs','· 6 standard operating procedures — the handover manual'],
+};
+
+let kanbanState = JSON.parse(localStorage.getItem('gs4_pipeline') || 'null') || JSON.parse(JSON.stringify(DEMO_PIPELINE));
+let dailyData = JSON.parse(localStorage.getItem('gs4_daily') || 'null') || JSON.parse(JSON.stringify(DAILY_DEMO));
+let cfg = JSON.parse(localStorage.getItem('gs4_config') || 'null') || { ...CLIENT_CONFIG };
+let dragSrc = null;
+let notionConnected = false;
+
+function save(){ localStorage.setItem('gs4_pipeline', JSON.stringify(kanbanState)); localStorage.setItem('gs4_daily', JSON.stringify(dailyData)); }
+
+// ——— INIT ———
+function applyConfig(){
+  document.getElementById('sb-client-name').textContent = cfg.clientName || CLIENT_CONFIG.clientName;
+  document.getElementById('sb-client-pill').textContent = cfg.currentMonth || CLIENT_CONFIG.currentMonth;
+  const t = TITLES[currentView] || TITLES.dashboard;
+  document.getElementById('ttitle').textContent = t[0];
+  document.getElementById('tsub').textContent = (cfg.clientName || CLIENT_CONFIG.clientName) + ' ' + t[1];
+}
+
+// ——— NAVIGATION ———
+let currentView = 'dashboard';
+function nav(id, el){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('v-'+id).classList.add('on');
+  const target = el || document.querySelector('.nav-item[data-nav="'+id+'"]');
+  if(target) target.classList.add('active');
+  currentView = id;
+  const t = TITLES[id] || TITLES.dashboard;
+  document.getElementById('ttitle').textContent = t[0];
+  document.getElementById('tsub').textContent = (cfg.clientName || 'Client') + ' ' + t[1];
+  if(id==='pipeline') renderKanban();
+  if(id==='outbound') renderDaily();
+  if(typeof editMode !== 'undefined' && editMode){
+    const v = document.getElementById('v-'+id);
+    if(v) makeEditable(v);
+  }
+}
+
+// ——— KANBAN ———
+function renderKanban(){
+  const board = document.getElementById('kanban-board');
+  board.innerHTML = COLS.map(col=>{
+    const cards = (kanbanState[col.key]||[]).map(c=>cardHTML(c,col.key)).join('');
+    const count = (kanbanState[col.key]||[]).length;
+    const won = col.key==='closed-won';
+    return `<div class="kb-col">
+      <div class="kb-hd"><div class="kb-ti">${col.label}</div><div class="kb-cnt ${won?'g':''}">${count}</div></div>
+      <div class="kb-body" ondragover="onDragOver(event)" ondrop="onDrop(event,'${col.key}')">
+        ${cards||'<div class="kb-empty">No contacts yet</div>'}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function cardHTML(c, col){
+  const won = col==='closed-won';
+  const lost = col==='closed-lost';
+  const tags = (c.tags||[]).map(t=>`<span class="ptag ${t}">${TAG_LABELS[t]||t}</span>`).join('');
+  return `<div class="pc ${won?'won':''}${lost?'lost':''}" draggable="true" id="card-${c.id}"
+    ondragstart="onDS(event,'${c.id}','${col}')" ondragend="onDE()">
+    <div class="pn">${c.name}</div>
+    <div class="pm">${c.meta}</div>
+    <div class="ptags">${tags}</div>
+    <div class="pval ${won?'g':''}${lost?'lost':''}">${c.val}</div>
+  </div>`;
+}
+
+function onDS(e,id,from){ dragSrc={id,from}; setTimeout(()=>{const el=document.getElementById('card-'+id);if(el)el.classList.add('dragging');},0); }
+function onDE(){ document.querySelectorAll('.pc').forEach(c=>c.classList.remove('dragging')); }
+function onDragOver(e){ e.preventDefault(); }
+function onDrop(e,to){
+  e.preventDefault();
+  if(!dragSrc||dragSrc.from===to) return;
+  const from = kanbanState[dragSrc.from];
+  const idx = from.findIndex(c=>c.id===dragSrc.id);
+  if(idx===-1) return;
+  const card = from.splice(idx,1)[0];
+  if(!kanbanState[to]) kanbanState[to]=[];
+  kanbanState[to].push(card);
+  dragSrc=null;
+  save();
+  renderKanban();
+  pushPipelineMove(card, to); // syncs back to Notion in the background if it's a real card
+}
+
+// ——— DAILY TRACKER ———
+function renderDaily(){
+  const tb = document.getElementById('daily-tbody');
+  tb.innerHTML = dailyData.map((r,i)=>`
+    <tr>
+      <td style="font-weight:700;color:var(--t1);">${r.day}</td>
+      <td><input type="number" value="${r.sent}" min="0" onchange="updateD(${i},'sent',this.value)"></td>
+      <td><input type="number" value="${r.replies}" min="0" onchange="updateD(${i},'replies',this.value)"></td>
+      <td><input type="number" value="${r.calls}" min="0" onchange="updateD(${i},'calls',this.value)"></td>
+      <td><input type="text" value="${r.msg}" onchange="updateD(${i},'msg',this.value)"></td>
+      <td><input type="text" value="${r.notes}" onchange="updateD(${i},'notes',this.value)"></td>
+    </tr>
+  `).join('');
+  const t = dailyData.reduce((a,r)=>({s:a.s+(+r.sent||0),r:a.r+(+r.replies||0),c:a.c+(+r.calls||0)}),{s:0,r:0,c:0});
+  const rr = t.s>0?((t.r/t.s)*100).toFixed(1):'0.0';
+  tb.innerHTML += `<tr style="background:var(--gdim);">
+    <td style="font-weight:700;color:var(--green-deep);">TOTAL</td>
+    <td style="font-weight:800;color:var(--green-deep);font-family:var(--mono);">${t.s}</td>
+    <td style="font-weight:800;color:var(--green-deep);font-family:var(--mono);">${t.r} (${rr}%)</td>
+    <td style="font-weight:800;color:var(--green-deep);font-family:var(--mono);">${t.c}</td>
+    <td colspan="2" style="color:var(--t3);font-size:11px;">Target: 1,000 contacts · 80-120 replies · 8-12 calls</td>
+  </tr>`;
+}
+function updateD(i,k,v){ dailyData[i][k]=isNaN(v)?v:(+v); save(); renderDaily(); }
+
+// ——— TABS ———
+function dmTab(id,el){
+  document.querySelectorAll('.dm-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.dm-panel').forEach(p=>p.classList.remove('on'));
+  el.classList.add('active');
+  document.getElementById('dm-'+id).classList.add('on');
+}
+function ctTab(id,el){
+  document.querySelectorAll('.ct-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.ct-panel').forEach(p=>p.classList.remove('on'));
+  el.classList.add('active');
+  document.getElementById('ct-'+id).classList.add('on');
+}
+function wkTab(n,el){
+  document.querySelectorAll('.wk-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.wk-panel').forEach(p=>p.classList.remove('on'));
+  el.classList.add('active');
+  document.getElementById('wk'+n).classList.add('on');
+}
+
+// ——— SOP ACCORDION ———
+function toggleSop(hd){
+  const body = hd.nextElementSibling;
+  const arr = hd.querySelector('.sop-arrow');
+  const open = body.classList.contains('on');
+  body.classList.toggle('on',!open);
+  arr.textContent = open ? '▾' : '▴';
+}
+
+// ——— FULLSCREEN ———
+function toggleFS(){
+  if(!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+  else document.exitFullscreen().catch(()=>{});
+}
+
+// ——— EDIT MODE (click any text to change it, saved on this device) ———
+const EDITABLE_VIEWS = ['dashboard','identity','pipeline','outbound','sales','content','modules','metrics','sops'];
+const EDIT_EXCLUDE_SELECTOR = '#kanban-board, #daily-tbody, .modal, .modal-overlay, .nav-item, .tb-btn, .dm-tab, .ct-tab, .wk-tab, .sop-hd, svg, button, input, .kb-cnt, .nb, .sc-lk';
+let editMode = false;
+let pristineViews = {};
+let editSaveTimer = null;
+
+function isExcludedEl(el){ return !!el.closest(EDIT_EXCLUDE_SELECTOR); }
+
+function isLeafTextEl(el){
+  if(el.tagName==='SVG' || el.tagName==='PATH') return false;
+  if(el.children.length){
+    const inlineOnly = [...el.children].every(c=>['BR','STRONG','SPAN','EM','B','I'].includes(c.tagName));
+    if(!inlineOnly) return false;
+  }
+  return el.textContent.trim().length > 0;
+}
+
+function makeEditable(root){
+  root.querySelectorAll('div,span,td,th,strong,li').forEach(el=>{
+    if(isExcludedEl(el)) return;
+    if(el.hasAttribute('contenteditable')) return;
+    if(!isLeafTextEl(el)) return;
+    el.setAttribute('contenteditable','true');
+    el.addEventListener('blur', queueEditSave);
+  });
+}
+function removeEditable(root){
+  root.querySelectorAll('[contenteditable="true"]').forEach(el=>{
+    el.removeAttribute('contenteditable');
+    el.removeEventListener('blur', queueEditSave);
+  });
+}
+function queueEditSave(){
+  clearTimeout(editSaveTimer);
+  editSaveTimer = setTimeout(()=>saveViewEdits(currentView), 200);
+}
+function saveViewEdits(viewId){
+  const el = document.getElementById('v-'+viewId);
+  if(el) localStorage.setItem('gs4_edit_'+viewId, el.innerHTML);
+}
+function loadSavedEdits(){
+  EDITABLE_VIEWS.forEach(id=>{
+    const saved = localStorage.getItem('gs4_edit_'+id);
+    const el = document.getElementById('v-'+id);
+    if(saved && el) el.innerHTML = saved;
+  });
+}
+function captureViewsPristine(){
+  EDITABLE_VIEWS.forEach(id=>{
+    const el = document.getElementById('v-'+id);
+    if(el) pristineViews[id] = el.innerHTML;
+  });
+}
+function toggleEditMode(){
+  editMode = !editMode;
+  document.body.classList.toggle('editing', editMode);
+  document.getElementById('edit-banner').classList.toggle('on', editMode);
+  document.getElementById('edit-btn').classList.toggle('active', editMode);
+  document.getElementById('edit-btn-label').textContent = editMode ? 'Done Editing' : 'Edit Content';
+  document.getElementById('reset-btn').style.display = editMode ? 'inline-flex' : 'none';
+  if(editMode){
+    const activeView = document.getElementById('v-'+currentView);
+    if(activeView) makeEditable(activeView);
+  } else {
+    EDITABLE_VIEWS.forEach(id=>{
+      const v = document.getElementById('v-'+id);
+      if(v){ removeEditable(v); saveViewEdits(id); }
+    });
+  }
+}
+function resetCurrentView(){
+  if(!(currentView in pristineViews)) return;
+  if(!confirm('Reset this view to the original demo content? Your edits here will be lost.')) return;
+  const el = document.getElementById('v-'+currentView);
+  el.innerHTML = pristineViews[currentView];
+  localStorage.removeItem('gs4_edit_'+currentView);
+  if(currentView==='pipeline') renderKanban();
+  if(currentView==='outbound') renderDaily();
+  if(editMode) makeEditable(el);
+}
+
+// ——— NOTION MODAL ———
+function openModal(){
+  const m = document.getElementById('modal-overlay');
+  m.classList.add('on');
+  document.getElementById('cfg-name').value = cfg.clientName||'';
+  document.getElementById('cfg-niche').value = (cfg.clientNiche||'')+(cfg.clientMarket?' · '+cfg.clientMarket:'');
+  document.getElementById('cfg-worker').value = cfg.workerUrl||'';
+  document.getElementById('cfg-clientkey').value = cfg.clientKey||'';
+  document.getElementById('cfg-programme').value = cfg.programme||'';
+  document.getElementById('cfg-month').value = cfg.currentMonth||'';
+}
+function closeModal(){ document.getElementById('modal-overlay').classList.remove('on'); }
+
+async function saveConfig(){
+  const workerUrl = document.getElementById('cfg-worker').value.trim().replace(/\/$/,'');
+  const clientKey = document.getElementById('cfg-clientkey').value.trim();
+  cfg.clientName = document.getElementById('cfg-name').value.trim() || cfg.clientName;
+  const nicheRaw = document.getElementById('cfg-niche').value.trim();
+  cfg.clientNiche = nicheRaw.split('·')[0].trim() || cfg.clientNiche;
+  cfg.clientMarket = nicheRaw.split('·')[1]?.trim() || cfg.clientMarket;
+  cfg.workerUrl = workerUrl;
+  cfg.clientKey = clientKey;
+  cfg.programme = document.getElementById('cfg-programme').value.trim() || cfg.programme;
+  cfg.currentMonth = document.getElementById('cfg-month').value.trim() || cfg.currentMonth;
+  localStorage.setItem('gs4_config', JSON.stringify(cfg));
+  applyConfig();
+
+  const status = document.getElementById('modal-status');
+  if(workerUrl && clientKey){
+    status.textContent = 'Connecting…';
+    status.style.color = 'var(--t3)';
+    const ok = await checkStatus();
+    if(ok){
+      setNotionStatus(true);
+      status.textContent = '✓ Connected — syncing live Notion data';
+      status.style.color = 'var(--green-deep)';
+      await fetchPipeline();
+    } else {
+      setNotionStatus(false);
+      status.textContent = '✗ Could not reach that client — check the Worker URL and Client Key';
+      status.style.color = 'var(--red)';
+    }
+  } else {
+    setNotionStatus(false);
+    status.textContent = 'Config saved. Add a Worker URL + Client Key to connect live data.';
+    status.style.color = 'var(--t3)';
+  }
+}
+
+// ——— WORKER API (token never touches this file) ———
+async function workerReq(path, method='GET', body=null){
+  if(!cfg.workerUrl || !cfg.clientKey) return null;
+  const sep = path.includes('?') ? '&' : '?';
+  const url = cfg.workerUrl + path + sep + 'client=' + encodeURIComponent(cfg.clientKey);
+  try {
+    const res = await fetch(url, {
+      method,
+      headers: { 'Content-Type':'application/json' },
+      body: body ? JSON.stringify({ ...body, client: cfg.clientKey }) : undefined,
+    });
+    return res.ok ? res.json() : null;
+  } catch(e) { return null; }
+}
+
+async function checkStatus(){
+  const data = await workerReq('/status');
+  return !!(data && data.connected);
+}
+
+async function fetchPipeline(){
+  const data = await workerReq('/pipeline');
+  if(!data || !data.pipeline) return;
+  kanbanState = data.pipeline;
+  save();
+  document.getElementById('nb-pipeline').textContent = Object.values(data.pipeline).flat().length;
+  if(currentView==='pipeline') renderKanban();
+}
+
+async function pushPipelineMove(card, toStatus){
+  if(!card.notionId) return; // demo card, nothing to sync
+  const res = await workerReq('/pipeline/move', 'POST', { notionId: card.notionId, toStatus });
+  if(!res || !res.ok){
+    console.warn('Could not sync move to Notion — will retry on next refresh');
+  }
+}
+
+function setNotionStatus(connected){
+  notionConnected = connected;
+  const dots = [document.getElementById('notion-dot'), document.getElementById('notion-dot-top')];
+  const labels = [document.getElementById('notion-label'), document.getElementById('notion-label-top')];
+  dots.forEach(d=>{ if(d){ d.classList.toggle('connected',connected); } });
+  labels.forEach(l=>{ if(l) l.textContent = connected ? '✓ Notion live' : 'Not connected'; });
+}
+
+// ——— SIGNATURE: LIVE SYSTEM CLOCK ———
+function tickClock(){
+  const el = document.getElementById('sb-clock');
+  if(!el) return;
+  const d = new Date();
+  const p = n => String(n).padStart(2,'0');
+  el.textContent = p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());
+}
+
+// ——— SIGNATURE: KPI COUNT-UP ———
+function animateCount(el, duration){
+  if(!el || el.dataset.counted) return;
+  el.dataset.counted = '1';
+  const raw = el.textContent.trim();
+  const prefix = (raw.match(/^[^0-9]*/)||[''])[0];
+  const num = parseInt(raw.replace(/[^0-9]/g,''),10);
+  if(isNaN(num)){ return; }
+  const dur = duration || 1000;
+  const t0 = performance.now();
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion){ el.textContent = raw; return; }
+  function tick(now){
+    const p2 = Math.min((now-t0)/dur, 1);
+    const eased = 1 - Math.pow(1-p2, 3);
+    el.textContent = prefix + Math.round(num*eased).toLocaleString('en-US');
+    if(p2 < 1) requestAnimationFrame(tick); else el.textContent = raw;
+  }
+  requestAnimationFrame(tick);
+}
+function animateDashboardKPIs(){
+  ['kv-revenue','kv-calls','kv-closed','kv-outbound'].forEach((id,i)=>{
+    setTimeout(()=>animateCount(document.getElementById(id)), 150 + i*90);
+  });
+}
+
+// ——— AUTO CONNECT ON LOAD ———
+window.addEventListener('DOMContentLoaded', ()=>{
+  renderKanban();
+  renderDaily();
+  captureViewsPristine();
+  loadSavedEdits();
+  applyConfig();
+  tickClock();
+  setInterval(tickClock, 1000);
+  animateDashboardKPIs();
+  if(cfg.workerUrl && cfg.clientKey){
+    checkStatus().then(ok=>{
+      setNotionStatus(ok);
+      if(ok) fetchPipeline();
+    });
+  }
+});
+</script>
+</body>
+</html>

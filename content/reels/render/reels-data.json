@@ -1,0 +1,120 @@
+{
+  "brand": {
+    "name": "GrowthStack OS",
+    "cream": "#F4F1EA",
+    "black": "#0A0A0A",
+    "green": "#4E9B78",
+    "greenDeep": "#1B5E43",
+    "t2": "#5C5A4C"
+  },
+  "reels": [
+    {
+      "id": "reel-1",
+      "title": "De 12K a 35K en 5 semanas",
+      "angle": "Formato: reveal de estadística (antes/después). Prueba social con cifra dura — filtra a quien ya factura algo y quiere un motor predecible, no a quien arranca de cero.",
+      "cta": "SISTEMA",
+      "beats": [
+        { "narration": "Esto es lo que pasa cuando un coach deja de depender de referidos.", "caption": "Cuando dejas de depender de referidos", "visual": { "type": "title", "bg": "black", "headline": "Esto pasa cuando\ndejas de depender\nde referidos", "sub": "" } },
+        { "narration": "Antes: doce mil dólares al mes. Cuatro clientes. Cien por ciento referidos.", "caption": "Antes: $12,000/mes · 100% referidos", "visual": { "type": "stat", "before": { "label": "Antes · 100% referidos", "value": "$12,000" }, "after": { "label": "", "value": "" } } },
+        { "narration": "Después de cinco semanas: treinta y cinco mil dólares al mes. Siete clientes. Pipeline predecible.", "caption": "Después: $35,000/mes · pipeline predecible", "visual": { "type": "stat", "before": { "label": "Antes · 100% referidos", "value": "$12,000" }, "after": { "label": "5 semanas después", "value": "$35,000" } } },
+        { "narration": "Así se ve su panel hoy: cuatro mil cincuenta contactos, veintiocho llamadas y siete clientes cerrados.", "caption": "4,050 contactos · 28 llamadas · 7 clientes", "visual": { "type": "shot", "image": "dashboard", "label": "PANEL — DASHBOARD" } },
+        { "narration": "No fue suerte. Fue un sistema completo: oferta, contenido, outbound y ventas, conectados.", "caption": "Oferta + contenido + outbound + ventas", "visual": { "type": "title", "bg": "cream", "headline": "No fue suerte.\nFue un sistema.", "sub": "" } },
+        { "narration": "Este es el mismo sistema que construyo para consultores que ya facturan y quieren un motor predecible, no otro truco de Instagram.", "caption": "Para consultores listos para escalar", "visual": { "type": "title", "bg": "black", "headline": "Para consultores\nque ya facturan\ny quieren escalar", "sub": "" } },
+        { "narration": "Si ese eres tú, escribe la palabra sistema.", "caption": "Escribe SISTEMA", "visual": { "type": "title", "bg": "green", "headline": "Escribe\nSISTEMA", "sub": "" } }
+      ]
+    },
+    {
+      "id": "reel-2",
+      "title": "El mensaje que consigue 10 llamadas al mes",
+      "angle": "Formato: mockup de chat de Instagram DM. Curiosidad táctica — atrae a quien ya vende pero no tiene un sistema de outbound.",
+      "cta": "DM",
+      "beats": [
+        { "narration": "Copia este mensaje. Le consiguió a un coach veintiocho llamadas calificadas en un mes.", "caption": "28 llamadas calificadas / mes", "visual": { "type": "title", "bg": "black", "headline": "Copia\neste mensaje", "sub": "" } },
+        { "narration": "Hola, vi tu perfil, me encanta lo que haces. Pregunta rápida: ¿sigues consiguiendo clientes solo por referidos?", "caption": "Mensaje 1 — el gancho", "visual": { "type": "chat", "header": "Mensaje 1 — El gancho", "bubbles": [ { "from": "out", "text": "Hola, vi tu perfil, me encanta lo que haces. ¿Sigues consiguiendo clientes solo por referidos?" } ] } },
+        { "narration": "La prospecta responde: la verdad sí, últimamente ha estado lento.", "caption": "Su respuesta", "visual": { "type": "chat", "header": "Mensaje 1 — El gancho", "bubbles": [ { "from": "out", "text": "Hola, vi tu perfil, me encanta lo que haces. ¿Sigues consiguiendo clientes solo por referidos?" }, { "from": "in", "text": "La verdad sí. Últimamente ha estado lento." } ] } },
+        { "narration": "Ahí entra el mensaje dos: pensé que sí. Ayudo a coaches a construir un sistema que consigue de ocho a doce llamadas al mes, sin depender de referidos. ¿Vale la pena una llamada de veinte minutos?", "caption": "Mensaje 2 — la invitación", "visual": { "type": "chat", "header": "Mensaje 2 — La invitación", "bubbles": [ { "from": "in", "text": "La verdad sí. Últimamente ha estado lento." }, { "from": "out", "text": "Pensé que sí. Ayudo a coaches a conseguir 8-12 llamadas al mes sin depender de referidos. ¿Vale la pena 20 min?" } ] } },
+        { "narration": "Fíjate en lo que no hace: no vende, no manda un link, no menciona precio en el primer mensaje. Solo abre una conversación real.", "caption": "Cero pitch en frío. Solo conversación.", "visual": { "type": "title", "bg": "cream", "headline": "Cero pitch\nen frío", "sub": "Solo una conversación real" } },
+        { "narration": "Esta secuencia de cinco mensajes generó trescientas setenta y seis respuestas de cuatro mil contactos.", "caption": "376 respuestas de 4,050 contactos", "visual": { "type": "shot", "image": "outbound", "label": "SECUENCIA DE 5 MENSAJES" } },
+        { "narration": "Si vendes algo bueno pero dependes de que te escriban primero, el problema no es tu oferta. Es que no tienes un sistema de outbound.", "caption": "El problema no es tu oferta", "visual": { "type": "title", "bg": "black", "headline": "El problema\nno es tu oferta", "sub": "" } },
+        { "narration": "Si quieres la secuencia completa con los cinco mensajes y las respuestas a objeciones, escribe la palabra D M.", "caption": "Escribe DM", "visual": { "type": "title", "bg": "green", "headline": "Escribe\nDM", "sub": "" } }
+      ]
+    },
+    {
+      "id": "reel-3",
+      "title": "Así se ve el sistema por dentro",
+      "angle": "Formato: tour de producto (screen demo continuo). Exclusividad / detrás de cámaras — atrae a quien valora herramientas profesionales.",
+      "cta": "PANEL",
+      "beats": [
+        { "narration": "Esto es lo que le entrego a cada consultor con el que trabajo.", "caption": "Lo que recibe cada consultor", "visual": { "type": "title", "bg": "black", "headline": "Esto es lo\nque entrego", "sub": "" } },
+        { "narration": "Un panel único donde ves ingresos, llamadas, clientes cerrados y contactos enviados, todo en tiempo real.", "caption": "Todo tu negocio en un panel", "visual": { "type": "shot", "image": "dashboard", "label": "01 · DASHBOARD" } },
+        { "narration": "Aquí queda documentado quién es tu cliente ideal y por qué te elige a ti y no a la competencia.", "caption": "Tu posicionamiento, documentado", "visual": { "type": "shot", "image": "identity", "label": "02 · BUSINESS IDENTITY" } },
+        { "narration": "Cada lead, cada mensaje, cada llamada, en un solo lugar, sin hojas de cálculo sueltas.", "caption": "Un solo lugar. Cero caos.", "visual": { "type": "shot", "image": "pipeline", "label": "03 · PIPELINE" } },
+        { "narration": "Y el calendario de contenido, con el gancho exacto para cada pieza que publicas.", "caption": "Calendario de contenido de 30 días", "visual": { "type": "shot", "image": "content", "label": "04 · CONTENT SYSTEM" } },
+        { "narration": "Cada domingo revisas tus métricas de la semana, sin adivinar qué está funcionando.", "caption": "Métricas semanales, sin adivinar", "visual": { "type": "shot", "image": "metrics", "label": "05 · WEEKLY METRICS" } },
+        { "narration": "Esto no es una plantilla de Notion. Es el sistema operativo completo de tu consultoría.", "caption": "No es una plantilla. Es un sistema operativo.", "visual": { "type": "title", "bg": "cream", "headline": "No es una\nplantilla.", "sub": "Es un sistema operativo." } },
+        { "narration": "Si quieres verlo por dentro, escribe la palabra panel.", "caption": "Escribe PANEL", "visual": { "type": "title", "bg": "green", "headline": "Escribe\nPANEL", "sub": "" } }
+      ]
+    },
+    {
+      "id": "reel-4",
+      "title": "Dejé de vender coaching y empecé a vender sistemas",
+      "angle": "Formato: quote cards estilo diario/testimonio personal. Filtro por mentalidad — aleja a quien busca trucos rápidos.",
+      "cta": "SEGUIR",
+      "beats": [
+        { "narration": "Pasé años ayudando a coaches a conseguir más clientes, uno por uno.", "caption": "Años ayudando coach por coach", "visual": { "type": "quote", "bg": "cream", "text": "Pasé años ayudando a coaches a conseguir más clientes. Uno por uno.", "tag": "" } },
+        { "narration": "Hasta que entendí que el problema nunca fue el marketing. Era que no tenían un sistema.", "caption": "El problema nunca fue el marketing", "visual": { "type": "quote", "bg": "black", "text": "El problema nunca fue el marketing. Era que no tenían un sistema.", "tag": "" } },
+        { "narration": "Algo que corriera todos los días, con o sin ellos publicando contenido nuevo.", "caption": "Un sistema que corre todos los días", "visual": { "type": "quote", "bg": "cream", "text": "Algo que corriera todos los días. Con o sin contenido nuevo.", "tag": "" } },
+        { "narration": "Por eso construí GrowthStack: outbound diario, contenido con propósito y un panel donde ves todo en tiempo real.", "caption": "Outbound + contenido + panel", "visual": { "type": "shot", "image": "dashboard", "label": "GROWTHSTACK OS" } },
+        { "narration": "No vendo promesas. Vendo el mismo sistema que llevó a un cliente de doce mil a treinta y cinco mil dólares al mes.", "caption": "No vendo promesas. Vendo sistemas.", "visual": { "type": "quote", "bg": "black", "text": "No vendo promesas. Vendo el mismo sistema que llevó a un cliente de $12K a $35K al mes.", "tag": "" } },
+        { "narration": "Si eres consultor y quieres dejar de empezar cada mes desde cero, sígueme.", "caption": "Sígueme si quieres dejar de empezar desde cero", "visual": { "type": "title", "bg": "green", "headline": "Sígueme.", "sub": "" } }
+      ]
+    },
+    {
+      "id": "reel-5",
+      "title": "7 historias que convierten seguidores en llamadas",
+      "angle": "Formato: countdown numerado 01-07. Framework replicable — atrae a quien ya tiene audiencia pero no convierte.",
+      "cta": "GUARDAR",
+      "beats": [
+        { "narration": "Siete historias. Publicadas en este orden exacto. Quien llega a la número siete ya está listo para decir que sí.", "caption": "7 historias. Un orden exacto.", "visual": { "type": "title", "bg": "black", "headline": "7 historias.\nUn orden exacto.", "sub": "" } },
+        { "narration": "Uno: el gancho. Una sola pregunta directa que detiene el scroll.", "caption": "1. El gancho", "visual": { "type": "numbered", "bg": "cream", "num": 1, "headline": "El gancho", "sub": "Detiene el scroll" } },
+        { "narration": "Dos: el problema. Hazles sentir vistos.", "caption": "2. El problema", "visual": { "type": "numbered", "bg": "cream", "num": 2, "headline": "El problema", "sub": "Los hace sentir vistos" } },
+        { "narration": "Tres: la consecuencia. Muéstrales el costo de seguir igual.", "caption": "3. La consecuencia", "visual": { "type": "numbered", "bg": "cream", "num": 3, "headline": "La consecuencia", "sub": "El costo de no cambiar" } },
+        { "narration": "Cuatro: la solución. Abre la posibilidad.", "caption": "4. La solución", "visual": { "type": "numbered", "bg": "green", "num": 4, "headline": "La solución", "sub": "Abre la posibilidad" } },
+        { "narration": "Cinco: la prueba. Respáldala con un resultado real.", "caption": "5. La prueba", "visual": { "type": "numbered", "bg": "green", "num": 5, "headline": "La prueba", "sub": "Un resultado real" } },
+        { "narration": "Seis: una encuesta de sí o no que te dice exactamente quién está listo para comprar.", "caption": "6. La encuesta que filtra", "visual": { "type": "numbered", "bg": "cream", "num": 6, "headline": "La encuesta\nque filtra", "sub": "" } },
+        { "narration": "Siete: el cierre directo. Responde esta palabra si quieres el sistema.", "caption": "7. El cierre directo", "visual": { "type": "shot", "image": "content", "label": "7 · STORY SEQUENCE" } },
+        { "narration": "Esta secuencia, publicada cada semana, generó decenas de mensajes orgánicos sin gastar en anuncios. Guarda este video.", "caption": "Guarda este video", "visual": { "type": "title", "bg": "black", "headline": "Guarda\neste video", "sub": "" } }
+      ]
+    },
+    {
+      "id": "reel-6",
+      "title": "Esto es exactamente lo que incluye",
+      "angle": "Formato: checklist de oferta desglosada. Escasez + calificación explícita — filtra por presupuesto y madurez del negocio.",
+      "cta": "SISTEMA",
+      "beats": [
+        { "narration": "Quedan dos cupos este mes. Esto es exactamente lo que te llevas.", "caption": "Quedan 2 cupos este mes", "visual": { "type": "title", "bg": "black", "headline": "Quedan\n2 cupos", "sub": "" } },
+        { "narration": "Reposicionamiento completo de tu oferta.", "caption": "Reposicionamiento de oferta", "visual": { "type": "checklist", "items": ["Reposicionamiento completo de tu oferta"] } },
+        { "narration": "Sistema de outbound: ciento cincuenta a doscientos contactos calificados por día.", "caption": "150-200 contactos calificados/día", "visual": { "type": "checklist", "items": ["Reposicionamiento completo de tu oferta", "Outbound: 150-200 contactos/día"] } },
+        { "narration": "Secuencia de siete historias que convierte seguidores en llamadas agendadas.", "caption": "Secuencia de 7 historias", "visual": { "type": "checklist", "items": ["Reposicionamiento completo de tu oferta", "Outbound: 150-200 contactos/día", "Secuencia de 7 historias"] } },
+        { "narration": "Y el panel GrowthStack OS, con tu pipeline, tus métricas y tus procesos en un solo lugar.", "caption": "Panel GrowthStack OS incluido", "visual": { "type": "checklist", "items": ["Reposicionamiento completo de tu oferta", "Outbound: 150-200 contactos/día", "Secuencia de 7 historias", "Panel GrowthStack OS completo"], "priceTag": "Inversión: $5,000" } },
+        { "narration": "Esto es para consultores facturando por debajo de tres mil dólares, listos para construir un sistema real.", "caption": "Para quién es", "visual": { "type": "title", "bg": "cream", "headline": "Para quién es:", "sub": "Listos para construir un sistema real" } },
+        { "narration": "Esto no es para quien busca resultados sin mostrarse constante.", "caption": "Para quién no es", "visual": { "type": "title", "bg": "cream", "headline": "Para quién\nno es:", "sub": "Sin constancia, no funciona" } },
+        { "narration": "Quedan dos cupos. Escribe la palabra sistema.", "caption": "Escribe SISTEMA", "visual": { "type": "title", "bg": "green", "headline": "Escribe\nSISTEMA", "sub": "" } }
+      ]
+    },
+    {
+      "id": "reel-7",
+      "title": "No necesitas más seguidores",
+      "angle": "Formato: comparación mito vs realidad (split screen). Contraintuitivo — filtra a quien ya tiene audiencia pero no convierte.",
+      "cta": "SISTEMA",
+      "beats": [
+        { "narration": "Lo que crees que necesitas para conseguir más clientes. Y lo que realmente funciona.", "caption": "Lo que crees vs. lo que funciona", "visual": { "type": "compare", "topLabel": "LO QUE CREES QUE NECESITAS", "topText": "Más seguidores", "bottomLabel": "LO QUE REALMENTE FUNCIONA", "bottomText": "Un sistema de adquisición activo" } },
+        { "narration": "Un coach tenía ochocientos seguidores cuando cerró su primer cliente de cinco mil dólares.", "caption": "800 seguidores → primer cliente de $5,000", "visual": { "type": "stat", "before": { "label": "Seguidores", "value": "800" }, "after": { "label": "Primer cliente", "value": "$5,000" } } },
+        { "narration": "Cinco semanas después, tenía lista de espera. Sin haber duplicado sus seguidores.", "caption": "5 semanas después: lista de espera", "visual": { "type": "title", "bg": "green", "headline": "5 semanas\ndespués:\nlista de espera", "sub": "" } },
+        { "narration": "La diferencia no fue el contenido. Fue tener un sistema de adquisición activo, en lugar de esperar al algoritmo.", "caption": "Sistema activo, no algoritmo pasivo", "visual": { "type": "shot", "image": "outbound", "label": "SISTEMA ACTIVO" } },
+        { "narration": "Cuatro mil contactos directos. Cero dependencia del algoritmo para conseguir esos números.", "caption": "4,050 contactos directos", "visual": { "type": "shot", "image": "dashboard", "label": "RESULTADOS" } },
+        { "narration": "Deja de apostarlo todo al contenido. Escribe la palabra sistema si quieres el sistema completo.", "caption": "Escribe SISTEMA", "visual": { "type": "title", "bg": "black", "headline": "Escribe\nSISTEMA", "sub": "" } }
+      ]
+    }
+  ]
+}
